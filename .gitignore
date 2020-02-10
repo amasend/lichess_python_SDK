@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# credentials
+.tests/credentials.ini
+
+# other
+.idea
