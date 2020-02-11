@@ -47,5 +47,9 @@ class BaseClient:
         async with self.session.request(method=method.value, url=url, **kwargs) as resp:
             return await resp.json()
 
-    async def is_authorized(self):
-        return await self.request(method=RequestMethods.GET, url=LICHEES_ACCOUNT_URL)
+    async def is_authorized(self) -> bool:
+        response = await self.request(method=RequestMethods.GET, url=LICHEES_ACCOUNT_URL)
+        if "error" in str(response):
+            return False
+        else:
+            return True
