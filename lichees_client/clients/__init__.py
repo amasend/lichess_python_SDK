@@ -1,1 +1,1 @@
-from lichees_client.clients.base_client import BaseClient
+from lichees_client.clients.client import APIClient
