@@ -3,14 +3,14 @@ import asyncio
 import pprint
 
 from lichees_client.clients import BaseClient
-from tests.utils import async_test
+from tests.utils import async_test, get_token_from_config
 
 
 class TestBaseClient(unittest.TestCase):
     event_loop = None
 
     client: 'BaseClient' = None
-    token = '...'
+    token = get_token_from_config(section='amasend')
 
     @classmethod
     def setUp(cls) -> None:

@@ -1,4 +1,5 @@
 import inspect
+import configparser
 from asyncio import coroutine, get_event_loop
 
 
@@ -12,3 +13,10 @@ def async_test(f):
             future = coroutine_(*args, **kwargs)
         get_event_loop().run_until_complete(future)
     return wrapper
+
+
+def get_token_from_config(section: str) -> str:
+    """Read token from configuration file."""
+    config = configparser.SafeConfigParser()
+    config.read('credentials.ini')
+    return config.get(section, 'token')
