@@ -1,16 +1,15 @@
 import unittest
 import asyncio
-import pprint
 
-from lichees_client.clients import BaseClient
-from tests.utils import async_test
+from lichees_client.clients.base_client import BaseClient
+from tests.utils import async_test, get_token_from_config
 
 
 class TestBaseClient(unittest.TestCase):
     event_loop = None
 
     client: 'BaseClient' = None
-    token = '...'
+    token = get_token_from_config(section='amasend')
 
     @classmethod
     def setUp(cls) -> None:
@@ -26,9 +25,16 @@ class TestBaseClient(unittest.TestCase):
     @async_test
     async def test_02__is_authorized__check_if_async_request_works__authorized(self):
         response = await self.client.is_authorized()
-        pprint.pprint(response)
 
-        self.assertNotIn('error', response, msg="Not authorized.")
+        self.assertTrue(response, msg="Not authorized.")
+
+    @unittest.expectedFailure
+    @async_test
+    async def test_03__is_authorized__check_if_async_request_works__not_authorized(self):
+        client = BaseClient(token="not_so_random_characters", loop=self.event_loop)
+        response = await client.is_authorized()
+
+        self.assertTrue(response, msg="Not authorized.")
 
 
 if __name__ == '__main__':
