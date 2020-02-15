@@ -1,9 +1,9 @@
-import json
 from copy import deepcopy
-from lichees_client.utils.enums import RequestMethods
+from lichess_client.utils.enums import RequestMethods, StatusTypes
 
 
 class BaseHelper:
+    """Base Helper class with defined custom magic methods, also for to dictionary conversion."""
     def to_dict(self) -> dict:
         _dict: dict = deepcopy(vars(self))
         for key, val in _dict.items():
@@ -19,6 +19,7 @@ class BaseHelper:
 
 
 class ResponseMetadata(BaseHelper):
+    """Metadata class for the response object."""
     def __init__(self, method: str,  url: str, content_type: str, timestamp: bytes) -> None:
         self.method = RequestMethods[method]
         self.url = url
@@ -27,13 +28,16 @@ class ResponseMetadata(BaseHelper):
 
 
 class ResponseEntity(BaseHelper):
-    def __init__(self, status: int, reason: str, content: str) -> None:
-        self.status = status
+    """Entity class for the response object."""
+    def __init__(self, code: int, reason: str, status: 'StatusTypes', content: dict) -> None:
+        self.code = code
         self.reason = reason
-        self.content = json.loads(content)
+        self.status = status
+        self.content = content
 
 
 class Response(BaseHelper):
+    """The Response class. Used to store every API response in the unified way."""
     def __init__(self, metadata: 'ResponseMetadata', entity: 'ResponseEntity') -> None:
         self.metadata = metadata
         self.entity = entity

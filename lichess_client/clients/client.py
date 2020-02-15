@@ -1,6 +1,6 @@
-from lichees_client.clients.abstract_client import AbstractClient
-from lichees_client.clients.base_client import BaseClient
-from lichees_client.endpoints import *
+from lichess_client.clients.abstract_client import AbstractClient
+from lichess_client.clients.base_client import BaseClient
+from lichess_client.endpoints import *
 
 
 class APIClient(AbstractClient):

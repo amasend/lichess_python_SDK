@@ -1,9 +1,9 @@
 from typing import TYPE_CHECKING
 
-from lichees_client.abstract_endpoints.abstract_games import AbstractGames
+from lichess_client.abstract_endpoints.abstract_games import AbstractGames
 
 if TYPE_CHECKING:
-    from lichees_client.clients.base_client import BaseClient
+    from lichess_client.clients.base_client import BaseClient
 
 
 class Games(AbstractGames):

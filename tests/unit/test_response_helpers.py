@@ -1,8 +1,8 @@
 import unittest
 import json
 
-from lichees_client.helpers import ResponseMetadata, ResponseEntity, Response
-from lichees_client.utils.enums import RequestMethods
+from lichess_client.helpers import ResponseMetadata, ResponseEntity, Response
+from lichess_client.utils.enums import RequestMethods, StatusTypes
 
 
 class TestResponseHelpers(unittest.TestCase):
@@ -13,16 +13,17 @@ class TestResponseHelpers(unittest.TestCase):
     url = 'https://lichees.org/account'
     content_type = 'application/json'
     timestamp = b'some timestamp'
-    status = 200
+    code = 200
     reason = 'SUCCESS'
-    content = '{"key": "value"}'
+    content = {'key': 'value'}
+    status = StatusTypes.SUCCESS
 
     @classmethod
     def setUp(cls) -> None:
         cls.metadata = ResponseMetadata(method='GET', url=cls.url,
                                         content_type=cls.content_type, timestamp=cls.timestamp)
 
-        cls.entity = ResponseEntity(status=cls.status, reason=cls.reason, content=cls.content)
+        cls.entity = ResponseEntity(code=cls.code, reason=cls.reason, status=cls.status, content=cls.content)
 
         cls.response = Response(metadata=cls.metadata, entity=cls.entity)
 
@@ -36,7 +37,7 @@ class TestResponseHelpers(unittest.TestCase):
     def test_02__entity__check_all_parameters__all_parameters_are_set_correctly(self):
         self.assertEqual(self.entity.status, self.status, msg='Entity status was set incorrectly')
         self.assertEqual(self.entity.reason, self.reason, msg='Entity reason was set incorrectly')
-        self.assertEqual(self.entity.content, json.loads(self.content), msg='Entity content was set incorrectly')
+        self.assertEqual(self.entity.content, self.content, msg='Entity content was set incorrectly')
 
     def test_03__response__check_all_parameters__all_parameters_are_set_correctly(self):
         self.assertIsInstance(self.response.entity, ResponseEntity,
