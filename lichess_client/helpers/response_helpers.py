@@ -1,4 +1,6 @@
+from typing import List, Union
 from copy import deepcopy
+
 from lichess_client.utils.enums import RequestMethods, StatusTypes
 
 
@@ -29,7 +31,7 @@ class ResponseMetadata(BaseHelper):
 
 class ResponseEntity(BaseHelper):
     """Entity class for the response object."""
-    def __init__(self, code: int, reason: str, status: 'StatusTypes', content: dict) -> None:
+    def __init__(self, code: int, reason: str, status: 'StatusTypes', content: Union[List[dict], dict]) -> None:
         self.code = code
         self.reason = reason
         self.status = status
