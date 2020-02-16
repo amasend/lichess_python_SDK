@@ -1,4 +1,5 @@
 import sys
+import json
 from typing import Any
 
 if sys.version_info >= (3, 7):
@@ -48,7 +49,53 @@ class BaseClient:
         aiohttp.client_reqrep.ClientResponse with response details
         """
         async with self.session.request(method=method.value, url=f"{LICHESS_URL}{url}", **kwargs) as resp:
-            body = await resp.json()
+            body = await resp.read()
+            try:
+                body = json.loads(body)
+
+            except json.decoder.JSONDecodeError:
+                body = 'error'
+
+            response = Response(
+                metadata=ResponseMetadata(
+                    method=resp.method,
+                    url=str(resp.url),
+                    content_type=resp.content_type,
+                    timestamp=resp.raw_headers[1][1]
+                ),
+                entity=ResponseEntity(
+                    code=resp.status,
+                    reason=resp.reason,
+                    status=StatusTypes.ERROR if 'error' in body else StatusTypes.SUCCESS,
+                    content=body
+                )
+            )
+            return response
+
+    async def request_stream(self, method: 'RequestMethods', url: str, **kwargs: Any) -> 'Response':
+        """
+        Request streaming async method.
+
+        Parameters
+        ----------
+        method: RequestMethods, required
+            One of REST method, please refer to lichess_client.utils.enums.RequestMethods
+
+        url: str, required
+            URL string for REST API endpoint
+
+        Returns
+        -------
+        aiohttp.client_reqrep.ClientResponse with response details
+        """
+        async with self.session.request(method=method.value, url=f"{LICHESS_URL}{url}", **kwargs) as resp:
+            body = []
+            async for data, _ in resp.content.iter_chunks():
+                if resp.status == 404:
+                    break
+                data = data.decode('utf-8', errors='strict')
+                body.extend([json.loads(entry) for entry in data.split('\n')[:-1]])
+
             response = Response(
                 metadata=ResponseMetadata(
                     method=resp.method,
