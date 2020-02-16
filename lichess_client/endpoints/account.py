@@ -30,7 +30,10 @@ class Account(AbstractAccount):
         >>> client = APIClient(token='...')
         >>> response = client.account.get_my_profile()
         """
-        response = await self._client.request(method=RequestMethods.GET, url=ACCOUNT_URL)
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        response = await self._client.request(method=RequestMethods.GET, url=ACCOUNT_URL, headers=headers)
         return response
 
     async def get_my_email_address(self) -> 'Response':
@@ -47,7 +50,10 @@ class Account(AbstractAccount):
         >>> client = APIClient(token='...')
         >>> response = client.account.get_my_email_address()()
         """
-        response = await self._client.request(method=RequestMethods.GET, url=ACCOUNT_EMAIL_URL)
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        response = await self._client.request(method=RequestMethods.GET, url=ACCOUNT_EMAIL_URL, headers=headers)
         return response
 
     async def get_my_preferences(self) -> 'Response':
@@ -64,7 +70,10 @@ class Account(AbstractAccount):
         >>> client = APIClient(token='...')
         >>> response = client.account.get_my_preferences()
         """
-        response = await self._client.request(method=RequestMethods.GET, url=ACCOUNT_PREFERENCES_URL)
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        response = await self._client.request(method=RequestMethods.GET, url=ACCOUNT_PREFERENCES_URL, headers=headers)
         return response
 
     async def get_my_kid_mode_status(self) -> 'Response':
@@ -81,7 +90,10 @@ class Account(AbstractAccount):
         >>> client = APIClient(token='...')
         >>> response = client.account.get_my_kid_mode_status()
         """
-        response = await self._client.request(method=RequestMethods.GET, url=ACCOUNT_KID_URL)
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        response = await self._client.request(method=RequestMethods.GET, url=ACCOUNT_KID_URL, headers=headers)
         return response
 
     async def set_my_kid_mode_status(self, *, turned_on: bool) -> 'Response':
@@ -103,6 +115,10 @@ class Account(AbstractAccount):
         >>> client = APIClient(token='...')
         >>> response = client.account.set_my_kid_mode_status()()
         """
+        headers = {
+            'Content-Type': 'application/json'
+        }
         parameters = {'v': json.dumps(turned_on)}
-        response = await self._client.request(method=RequestMethods.POST, url=ACCOUNT_KID_URL, params=parameters)
+        response = await self._client.request(method=RequestMethods.POST, url=ACCOUNT_KID_URL,
+                                              headers=headers, params=parameters)
         return response
