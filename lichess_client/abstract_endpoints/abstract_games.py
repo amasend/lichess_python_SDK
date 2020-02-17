@@ -5,7 +5,16 @@ class AbstractGames(ABC):
     """An abstract class for Games API Endpoint"""
 
     @abstractmethod
-    def export_one_game(self):
+    def export_one_game(self,
+                        game_id: str,
+                        moves: bool = False,
+                        with_pgn: bool = False,
+                        tags: bool = False,
+                        clocks: bool = False,
+                        evals: bool = False,
+                        opening_names: bool = False,
+                        literate: bool = False):
+        """Download one game. Only finished games can be downloaded."""
         pass
 
     @abstractmethod

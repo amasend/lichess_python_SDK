@@ -21,3 +21,14 @@ USERS_MY_PUZZLE_ACTIVITY_URL = 'api/user/puzzle-activity'
 USERS_GET_BY_IDS_URL = 'api/users'
 USERS_TEAM_MEMBERS_URL = 'team/{teamId}/users'
 USERS_LIVE_STREAMERS_URL = 'streamer/live'
+
+#############
+# RELATIONS #
+#############
+RELATIONS_FOLLOWING_URL = 'api/users/{username}/following'
+RELATIONS_FOLLOWERS_URL = 'api/users/{username}/followers'
+
+#########
+# GAMES #
+#########
+GAMES_EXPORT_ONE_URL = 'api/game/export/{gameId}'
