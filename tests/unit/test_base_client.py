@@ -1,7 +1,7 @@
 import unittest
 import asyncio
 
-from lichees_client.clients.base_client import BaseClient
+from lichess_client.clients.base_client import BaseClient
 from tests.utils import async_test, get_token_from_config
 
 

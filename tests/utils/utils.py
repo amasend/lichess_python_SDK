@@ -17,6 +17,6 @@ def async_test(f):
 
 def get_token_from_config(section: str) -> str:
     """Read token from configuration file."""
-    config = configparser.SafeConfigParser()
+    config = configparser.ConfigParser()
     config.read('credentials.ini')
     return config.get(section, 'token')
