@@ -1,7 +1,10 @@
-from typing import List, Union
+from typing import List, Union, TYPE_CHECKING
 from copy import deepcopy
 
 from lichess_client.utils.enums import RequestMethods, StatusTypes
+
+if TYPE_CHECKING:
+    from chess.pgn import Game
 
 
 class BaseHelper:
@@ -31,7 +34,7 @@ class ResponseMetadata(BaseHelper):
 
 class ResponseEntity(BaseHelper):
     """Entity class for the response object."""
-    def __init__(self, code: int, reason: str, status: 'StatusTypes', content: Union[List[dict], dict]) -> None:
+    def __init__(self, code: int, reason: str, status: 'StatusTypes', content: Union[List[dict], dict, 'Game']) -> None:
         self.code = code
         self.reason = reason
         self.status = status

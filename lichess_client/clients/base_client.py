@@ -6,7 +6,10 @@ if sys.version_info >= (3, 7):
     from asyncio import get_running_loop
 else:
     from asyncio import get_event_loop
+
 from aiohttp import ClientSession
+import chess.pgn
+import io
 
 from lichess_client.helpers import Response, ResponseEntity, ResponseMetadata
 from lichess_client.utils.enums import RequestMethods, StatusTypes
@@ -49,12 +52,17 @@ class BaseClient:
         aiohttp.client_reqrep.ClientResponse with response details
         """
         async with self.session.request(method=method.value, url=f"{LICHESS_URL}{url}", **kwargs) as resp:
-            body = await resp.read()
-            try:
-                body = json.loads(body)
+            if resp.content_type == 'application/x-chess-pgn':
+                body = await resp.text()
+                body = chess.pgn.read_game(io.StringIO(body))
+            else:
+                body = await resp.read()
 
-            except json.decoder.JSONDecodeError:
-                body = 'error'
+                try:
+                    body = json.loads(body)
+
+                except json.decoder.JSONDecodeError:
+                    body = 'error'
 
             response = Response(
                 metadata=ResponseMetadata(

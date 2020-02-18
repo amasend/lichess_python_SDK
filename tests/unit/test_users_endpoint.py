@@ -6,7 +6,7 @@ from lichess_client.utils.enums import StatusTypes, VariantTypes
 from tests.utils import get_token_from_config, async_test
 
 
-class TestAccountEndpoint(unittest.TestCase):
+class TestUsersEndpoint(unittest.TestCase):
     client = None
     token = get_token_from_config('amasend')
 
