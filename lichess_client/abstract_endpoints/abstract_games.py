@@ -10,7 +10,18 @@ class AbstractGames(ABC):
         pass
 
     @abstractmethod
-    def export_games_of_a_user(self):
+    def export_games_of_a_user(self,
+                               username: str,
+                               since: int = None,
+                               until: int = None,
+                               max: int = None,
+                               vs: str = None,
+                               rated: bool = None,
+                               variant: 'VariantTypes' = None,
+                               color: 'ColorType' = None,
+                               analysed: bool = None,
+                               ongoing: bool = False):
+        """Download all games of any user in PGN format."""
         pass
 
     @abstractmethod

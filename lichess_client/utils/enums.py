@@ -30,3 +30,9 @@ class VariantTypes(str, Enum):
     KING_OF_THE_HILL = "kingOfTheHill"
     RACING_KINGS = "racingKings"
     THRESS_CHECK = "threeCheck"
+
+
+class ColorType(str, Enum):
+    """Color of the user pawns."""
+    WHITE = "white"
+    BLACK = "black"

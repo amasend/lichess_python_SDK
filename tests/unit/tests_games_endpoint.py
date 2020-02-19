@@ -24,6 +24,16 @@ class TestAccountEndpoint(unittest.TestCase):
         self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
         self.assertIsInstance(response.entity.content, Game, msg="Game was incorrectly loaded.")
 
+    @async_test
+    async def test_02__export_user_games__fetching_finished_user_games_details__response_object_returned_with_success(self):
+        response = await self.client.games.export_games_of_a_user(username='amasend')
+        print(response)
+
+        self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
+        self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
+
+    # TODO: add more tests for export_user_games with different parameters
+
 
 if __name__ == '__main__':
     unittest.main()

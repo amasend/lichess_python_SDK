@@ -1,5 +1,6 @@
 import sys
 import json
+import io
 from typing import Any
 
 if sys.version_info >= (3, 7):
@@ -97,12 +98,30 @@ class BaseClient:
         aiohttp.client_reqrep.ClientResponse with response details
         """
         async with self.session.request(method=method.value, url=f"{LICHESS_URL}{url}", **kwargs) as resp:
-            body = []
-            async for data, _ in resp.content.iter_chunks():
+
+            if resp.content_type == 'application/x-chess-pgn':
+                body = f""
+
+            else:
+                body = []
+
+            async for data, _ in resp.content.iter_chunks():    # note: streaming content!
                 if resp.status == 404:
+                    body = 'error'
                     break
+
                 data = data.decode('utf-8', errors='strict')
-                body.extend([json.loads(entry) for entry in data.split('\n')[:-1]])
+
+                if resp.content_type == 'application/x-chess-pgn':
+                    body = f"{body}{data}"
+
+                else:
+                    body.extend([json.loads(entry) for entry in data.split('\n')[:-1]])
+
+            # note: we should return a list of fetched games in PGH format
+            if resp.content_type == 'application/x-chess-pgn':
+                body = [chess.pgn.read_game(io.StringIO(game)) for game in body.split('\n\n\n')]
+                body = body[:-1]
 
             response = Response(
                 metadata=ResponseMetadata(
