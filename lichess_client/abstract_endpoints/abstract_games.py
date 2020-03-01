@@ -1,3 +1,4 @@
+from typing import List
 from abc import ABC, abstractmethod
 
 
@@ -25,7 +26,8 @@ class AbstractGames(ABC):
         pass
 
     @abstractmethod
-    def export_games_by_ids(self):
+    def export_games_by_ids(self, game_ids: List[str]):
+        """Download games by IDs."""
         pass
 
     @abstractmethod

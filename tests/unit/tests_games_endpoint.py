@@ -34,6 +34,14 @@ class TestAccountEndpoint(unittest.TestCase):
 
     # TODO: add more tests for export_user_games with different parameters
 
+    @async_test
+    async def test_03__export_games_by_ids__fetching_list_of_games__response_object_returned_with_success(self):
+        response = await self.client.games.export_games_by_ids(game_ids=['q7zvsdUF', 'ILwozzRZ', '4OtIh2oh'])
+        print(response)
+
+        self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
+        self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
+
 
 if __name__ == '__main__':
     unittest.main()

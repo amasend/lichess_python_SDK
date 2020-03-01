@@ -33,3 +33,4 @@ RELATIONS_FOLLOWERS_URL = 'api/users/{username}/followers'
 #########
 GAMES_EXPORT_ONE_URL = 'game/export/{gameId}'
 GAMES_EXPORT_USER_URL = 'api/games/user/{username}'
+GAMES_EXPORT_IDS_URL = 'games/export/_ids'

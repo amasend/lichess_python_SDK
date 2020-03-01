@@ -4,7 +4,8 @@ from typing import TYPE_CHECKING, Union, List
 from lichess_client.utils.enums import RequestMethods, VariantTypes, ColorType
 from lichess_client.abstract_endpoints.abstract_games import AbstractGames
 from lichess_client.helpers import Response
-from lichess_client.utils.hrefs import GAMES_EXPORT_ONE_URL, GAMES_EXPORT_USER_URL
+from lichess_client.utils.hrefs import GAMES_EXPORT_ONE_URL, GAMES_EXPORT_USER_URL, GAMES_EXPORT_IDS_URL
+from lichess_client.utils.client_errors import ToManyIDs
 
 if TYPE_CHECKING:
     from lichess_client.clients.base_client import BaseClient
@@ -163,8 +164,51 @@ class Games(AbstractGames):
                                                      params=parameters)
         return response
 
-    async def export_games_by_ids(self):
-        pass
+    async def export_games_by_ids(self, game_ids: List[str]) -> 'Response':
+        """
+        Download games by IDs.
+
+        Games are sorted by reverse chronological order (most recent first)
+
+        The method is POST so a longer list of IDs can be sent in the request body. At most 300 IDs can be submitted.
+
+
+        Parameters
+        ----------
+        game_ids: List[str], required
+            IDs of the games.
+
+        Returns
+        -------
+        Response object with response content.
+
+        Example
+        -------
+        >>> from lichess_client import APIClient
+        >>> client = APIClient(token='...')
+        >>> response = client.users.export_games_by_ids(game_ids=['q7zvsdUF', 'ILwozzRZ'])
+        """
+        if len(game_ids) > 300:
+            raise ToManyIDs('export_games_by_ids',
+                            reason="Cannot fetch more than 300 games at once. Please specify less than 300 game IDs.")
+
+        headers = {
+            'Content-Type': 'text/plain'
+        }
+        parameters = {
+            'moves': 'true',
+            'pgnInJson': 'false',
+            'tags': 'true',
+            'clocks': 'true',
+            'evals': 'true',
+            'opening': 'true',
+        }
+        response = await self._client.request_stream(method=RequestMethods.POST,
+                                                     url=GAMES_EXPORT_IDS_URL,
+                                                     headers=headers,
+                                                     params=parameters,
+                                                     data=','.join(game_ids))
+        return response
 
     async def stream_current_games(self):
         pass
