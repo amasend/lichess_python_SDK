@@ -31,11 +31,13 @@ class AbstractGames(ABC):
         pass
 
     @abstractmethod
-    def stream_current_games(self):
+    def stream_current_games(self, users: List[str]):
+        """Stream current games between users."""
         pass
 
     @abstractmethod
-    def get_ongoing_games(self):
+    def get_ongoing_games(self, limit: int = 9):
+        """Get the ongoing games of the current user."""
         pass
 
     @abstractmethod

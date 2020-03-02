@@ -20,3 +20,8 @@ class BaseError(Exception):
 class ToManyIDs(BaseError):
     def __init__(self, value: Any, reason: str) -> None:
         super().__init__(value, reason)
+
+
+class LimitError(BaseError):
+    def __init__(self, value: Any, reason: str) -> None:
+        super().__init__(value, reason)

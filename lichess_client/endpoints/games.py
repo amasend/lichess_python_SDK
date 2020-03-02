@@ -4,8 +4,9 @@ from typing import TYPE_CHECKING, Union, List
 from lichess_client.utils.enums import RequestMethods, VariantTypes, ColorType
 from lichess_client.abstract_endpoints.abstract_games import AbstractGames
 from lichess_client.helpers import Response
-from lichess_client.utils.hrefs import GAMES_EXPORT_ONE_URL, GAMES_EXPORT_USER_URL, GAMES_EXPORT_IDS_URL
-from lichess_client.utils.client_errors import ToManyIDs
+from lichess_client.utils.hrefs import (GAMES_EXPORT_ONE_URL, GAMES_EXPORT_USER_URL, GAMES_EXPORT_IDS_URL,
+                                        GAMES_STREAM_CURRENT_URL, GAMES_ONGOING_URL)
+from lichess_client.utils.client_errors import ToManyIDs, LimitError
 
 if TYPE_CHECKING:
     from lichess_client.clients.base_client import BaseClient
@@ -210,11 +211,79 @@ class Games(AbstractGames):
                                                      data=','.join(game_ids))
         return response
 
-    async def stream_current_games(self):
-        pass
+    async def stream_current_games(self, users: List[str]) -> 'Response':
+        """
+        Stream the games played between a list of users, in real time.
+        Only games where both players are part of the list are included.
+        Maximum number of users: 300.
+        The method is POST so a longer list of IDs can be sent in the request body.
 
-    async def get_ongoing_games(self):
-        pass
+        Parameters
+        ----------
+        users: List[str], required
+            User names.
+
+        Returns
+        -------
+        Response object with response content.
+
+        Example
+        -------
+        >>> from lichess_client import APIClient
+        >>> client = APIClient(token='...')
+        >>> response = client.users.stream_current_games(users=['amasend', 'lovlas', 'chess-network'])
+        """
+        raise NotImplemented("This method is not implemented yet.")
+        if len(users) > 300:
+            raise ToManyIDs('stream_current_games',
+                            reason="Cannot fetch more than 300 games at once. Please specify less than 300 users.")
+
+        headers = {
+            'Content-Type': 'text/plain'
+        }
+        response = await self._client.request_stream(method=RequestMethods.POST,
+                                                     url=GAMES_STREAM_CURRENT_URL,
+                                                     headers=headers,
+                                                     data=','.join(users))
+        return response
+
+    async def get_ongoing_games(self, limit: int = 9) -> 'Response':
+        """
+        Get the ongoing games of the current user.
+        Real-time and correspondence games are included. The most urgent games are listed first.
+
+        Parameters
+        ----------
+        limit: int, optional
+            Number of games to fetch, default is 9.
+
+        Returns
+        -------
+        Response object with response content.
+
+        Example
+        -------
+        >>> from lichess_client import APIClient
+        >>> client = APIClient(token='...')
+        >>> response_1 = client.users.get_ongoing_games(limit=10)
+        >>> response_2 = client.users.get_ongoing_games()
+        """
+        if limit > 50:
+            raise LimitError("get_ongoing_games", reason="Max number of games is 50.")
+        elif limit < 1:
+            raise LimitError("get_ongoing_games", reason="Min number of games is 1.")
+
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        parameters = {
+            'nb': limit,
+        }
+        response = await self._client.request(method=RequestMethods.GET,
+                                              url=GAMES_ONGOING_URL,
+                                              headers=headers,
+                                              params=parameters)
+        return response
 
     async def get_current_tv_games(self):
         pass
