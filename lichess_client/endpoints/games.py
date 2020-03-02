@@ -5,7 +5,7 @@ from lichess_client.utils.enums import RequestMethods, VariantTypes, ColorType
 from lichess_client.abstract_endpoints.abstract_games import AbstractGames
 from lichess_client.helpers import Response
 from lichess_client.utils.hrefs import (GAMES_EXPORT_ONE_URL, GAMES_EXPORT_USER_URL, GAMES_EXPORT_IDS_URL,
-                                        GAMES_STREAM_CURRENT_URL, GAMES_ONGOING_URL)
+                                        GAMES_STREAM_CURRENT_URL, GAMES_ONGOING_URL, GAMES_CURRENT_TV_URL)
 from lichess_client.utils.client_errors import ToManyIDs, LimitError
 
 if TYPE_CHECKING:
@@ -285,5 +285,25 @@ class Games(AbstractGames):
                                               params=parameters)
         return response
 
-    async def get_current_tv_games(self):
-        pass
+    async def get_current_tv_games(self) -> 'Response':
+        """
+        Get basic info about the best games being played for each speed and variant,
+        but also computer games and bot games.
+
+        Returns
+        -------
+        Response object with response content.
+
+        Example
+        -------
+        >>> from lichess_client import APIClient
+        >>> client = APIClient(token='...')
+        >>> response = client.users.get_current_tv_games()
+        """
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        response = await self._client.request(method=RequestMethods.GET,
+                                              url=GAMES_CURRENT_TV_URL,
+                                              headers=headers)
+        return response

@@ -58,6 +58,14 @@ class TestAccountEndpoint(unittest.TestCase):
         self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
         self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
 
+    @async_test
+    async def test_06__get_current_tv_games__fetching_list_of_games__response_object_returned_with_success(self):
+        response = await self.client.games.get_current_tv_games()
+        print(response)
+
+        self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
+        self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
+
 
 if __name__ == '__main__':
     unittest.main()

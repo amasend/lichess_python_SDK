@@ -42,4 +42,6 @@ class AbstractGames(ABC):
 
     @abstractmethod
     def get_current_tv_games(self):
+        """Get basic info about the best games being played for each speed and variant,
+        but also computer games and bot games."""
         pass
