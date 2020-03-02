@@ -37,3 +37,10 @@ GAMES_EXPORT_IDS_URL = 'games/export/_ids'
 GAMES_STREAM_CURRENT_URL = 'api/stream/games-by-users'
 GAMES_ONGOING_URL = 'api/account/playing'
 GAMES_CURRENT_TV_URL = 'tv/channels'
+
+#########
+# TEAMS #
+#########
+TEAMS_JOIN_URL = 'team/{teamId}/join'
+TEAMS_LEAVE_URL = 'team/{teamId}/quit'
+TEAMS_KICK_USER_URL = '/team/{teamId}/kick/{userId}'
