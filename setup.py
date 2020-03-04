@@ -13,7 +13,7 @@ setuptools.setup(
     author_email="amadeuszmasny@gmail.com",
     description="Python API client for accessing the lichess.org API.",
     url="...",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages(exclude=["tests"]),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache License",

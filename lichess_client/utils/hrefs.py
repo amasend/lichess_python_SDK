@@ -44,3 +44,8 @@ GAMES_CURRENT_TV_URL = 'tv/channels'
 TEAMS_JOIN_URL = 'team/{teamId}/join'
 TEAMS_LEAVE_URL = 'team/{teamId}/quit'
 TEAMS_KICK_USER_URL = '/team/{teamId}/kick/{userId}'
+
+########
+# BOTS #
+########
+BOTS_STREAM_INCOMING_EVENTS = 'api/stream/event'

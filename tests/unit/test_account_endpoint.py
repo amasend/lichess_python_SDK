@@ -9,7 +9,7 @@ from tests.utils import get_token_from_config, async_test
 
 class TestAccountEndpoint(unittest.TestCase):
     client = None
-    token = get_token_from_config('amasend')
+    token = get_token_from_config('connector_123')
 
     @classmethod
     def setUp(cls) -> None:
