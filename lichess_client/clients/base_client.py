@@ -116,7 +116,8 @@ class BaseClient:
                     body = f"{body}{data}"
 
                 else:
-                    body.extend([json.loads(entry) for entry in data.split('\n')[:-1]])
+                    buffer = [entry for entry in data.split('\n')[:-1]]
+                    body.extend([json.loads(entry) for entry in buffer if entry != ''])
 
             # note: we should return a list of fetched games in PGH format
             if resp.content_type == 'application/x-chess-pgn':

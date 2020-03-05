@@ -49,3 +49,9 @@ TEAMS_KICK_USER_URL = '/team/{teamId}/kick/{userId}'
 # BOTS #
 ########
 BOTS_STREAM_INCOMING_EVENTS = 'api/stream/event'
+
+##########
+# BOARDS #
+##########
+BOARDS_STREAM_INCOMING_EVENTS = 'api/stream/event'
+BOARDS_CREATE_A_SEEK = 'api/board/seek'

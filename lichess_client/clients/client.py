@@ -32,3 +32,4 @@ class APIClient(AbstractClient):
         self.tournaments = Tournaments(client=self._client)
         self.users = Users(client=self._client)
         self.bots = Bots(client=self._client)
+        self.boards = Boards(client=self._client)

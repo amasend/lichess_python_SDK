@@ -25,3 +25,8 @@ class ToManyIDs(BaseError):
 class LimitError(BaseError):
     def __init__(self, value: Any, reason: str) -> None:
         super().__init__(value, reason)
+
+
+class RatingRangeError(BaseError):
+    def __init__(self, value: Any, reason: str) -> None:
+        super().__init__(value, reason)

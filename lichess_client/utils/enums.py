@@ -17,6 +17,7 @@ class StatusTypes(str, Enum):
 
 class VariantTypes(str, Enum):
     """Game variant types"""
+    STANDARD = "standard"
     ULTRA_BULLET = "ultraBullet"
     BULLET = "bullet"
     BLITZ = "blitz"
@@ -36,3 +37,4 @@ class ColorType(str, Enum):
     """Color of the user pawns."""
     WHITE = "white"
     BLACK = "black"
+    RANDOM = "random"
