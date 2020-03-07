@@ -16,11 +16,11 @@ class TestBoardsEndpoint(unittest.TestCase):
 
     @async_test
     async def test_01__stream_incoming_events__fetching_information_about_incoming_game__response_object_returned_with_success(self):
-        response = await self.client.boards.stream_incoming_events()
-        print(response)
+        async for response in self.client.boards.stream_incoming_events():
+            print(response)
 
-        self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
-        self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
+            self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
+            self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
 
     @async_test
     async def test_02__create_a_seek__seeking_the_game__response_object_returned_with_success(self):

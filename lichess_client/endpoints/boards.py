@@ -34,10 +34,10 @@ class Boards(AbstractBoards):
         headers = {
             'Content-Type': 'application/json'
         }
-        response = await self._client.request_stream(method=RequestMethods.GET,
-                                                     url=BOARDS_STREAM_INCOMING_EVENTS,
-                                                     headers=headers)
-        return response
+        async for response in self._client.request_constant_stream(method=RequestMethods.GET,
+                                                                   url=BOARDS_STREAM_INCOMING_EVENTS,
+                                                                   headers=headers):
+            yield response
 
     async def create_a_seek(self,
                             time: int,

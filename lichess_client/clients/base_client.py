@@ -1,7 +1,7 @@
 import sys
 import json
 import io
-from typing import Any
+from typing import Any, AsyncIterable
 
 if sys.version_info >= (3, 7):
     from asyncio import get_running_loop
@@ -139,6 +139,52 @@ class BaseClient:
                 )
             )
             return response
+
+    async def request_constant_stream(self,
+                                      method: 'RequestMethods',
+                                      url: str,
+                                      **kwargs: Any) -> AsyncIterable['Response']:
+        """
+        Request constant streaming async method.
+
+        Parameters
+        ----------
+        method: RequestMethods, required
+            One of REST method, please refer to lichess_client.utils.enums.RequestMethods
+
+        url: str, required
+            URL string for REST API endpoint
+
+        Returns
+        -------
+        aiohttp.client_reqrep.ClientResponse with response details
+        """
+        async with self.session.request(method=method.value, url=f"{LICHESS_URL}{url}", **kwargs) as resp:
+
+            async for body, _ in resp.content.iter_chunks():    # note: streaming content!
+                if resp.status == 404:
+                    body = 'error'
+
+                body = body.decode('utf-8', errors='strict').split('\n')[0]
+
+                if body == '':
+                    continue
+
+                else:
+                    yield Response(
+                        metadata=ResponseMetadata(
+                            method=resp.method,
+                            url=str(resp.url),
+                            content_type=resp.content_type,
+                            timestamp=resp.raw_headers[1][1]
+                        ),
+                        entity=ResponseEntity(
+                            code=resp.status,
+                            reason=resp.reason,
+                            status=StatusTypes.ERROR if 'error' in body else StatusTypes.SUCCESS,
+                            content=body
+                        )
+                    )
 
     async def is_authorized(self) -> bool:
         """
