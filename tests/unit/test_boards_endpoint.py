@@ -9,6 +9,7 @@ from tests.utils import get_token_from_config, async_test
 class TestBoardsEndpoint(unittest.TestCase):
     client = None
     token = get_token_from_config('amasend')
+    game_id = 'FXLwzgzF'
 
     @classmethod
     def setUp(cls) -> None:
@@ -29,6 +30,14 @@ class TestBoardsEndpoint(unittest.TestCase):
 
         self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
         self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
+
+    @async_test
+    async def test_03__stream_game_state__fetching_current_game_state__response_object_returned_with_success(self):
+        async for response in self.client.boards.stream_game_state(game_id=self.game_id):
+            print(response)
+
+            self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
+            self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
 
 
 if __name__ == '__main__':

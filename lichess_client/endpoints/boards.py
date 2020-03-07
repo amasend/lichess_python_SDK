@@ -4,11 +4,16 @@ from typing import TYPE_CHECKING, List
 from lichess_client.abstract_endpoints.abstract_boards import AbstractBoards
 from lichess_client.utils.enums import RequestMethods, VariantTypes, ColorType
 from lichess_client.utils.client_errors import RatingRangeError
-from lichess_client.utils.hrefs import BOARDS_STREAM_INCOMING_EVENTS, BOARDS_CREATE_A_SEEK
+from lichess_client.utils.hrefs import BOARDS_STREAM_INCOMING_EVENTS, BOARDS_CREATE_A_SEEK, BOARDS_STREAM_GAME_STATE
 
 if TYPE_CHECKING:
     from lichess_client.clients.base_client import BaseClient
     from lichess_client.helpers import Response
+
+
+__all__ = [
+    "Boards"
+]
 
 
 class Boards(AbstractBoards):
@@ -29,7 +34,8 @@ class Boards(AbstractBoards):
         -------
         >>> from lichess_client import APIClient
         >>> client = APIClient(token='...')
-        >>> response = client.boards.get_my_profile()
+        >>> async for response in client.boards.stream_incoming_events()
+        >>>     print(response)
         """
         headers = {
             'Content-Type': 'application/json'
@@ -80,7 +86,7 @@ class Boards(AbstractBoards):
         -------
         >>> from lichess_client import APIClient
         >>> client = APIClient(token='...')
-        >>> response = client.boards.create_a_seek(time=10, increment=0)
+        >>> response = await client.boards.create_a_seek(time=10, increment=0)
         """
 
         headers = {
@@ -105,3 +111,31 @@ class Boards(AbstractBoards):
                                                      data=data,
                                                      headers=headers)
         return response
+
+    async def stream_game_state(self, game_id: str) -> 'Response':
+        """
+        Stream the state of a game being played with the Board API
+
+        Parameters
+        ----------
+        game_id: str, required
+            ID of the current playing game.
+
+        Returns
+        -------
+        Response object with response content.
+
+        Example
+        -------
+        >>> from lichess_client import APIClient
+        >>> client = APIClient(token='...')
+        >>> async for response in client.boards.stream_game_state(game_id='5IrD6Gzz')
+        >>>     print(response)
+        """
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        async for response in self._client.request_constant_stream(method=RequestMethods.GET,
+                                                                   url=BOARDS_STREAM_GAME_STATE.format(gameId=game_id),
+                                                                   headers=headers):
+            yield response

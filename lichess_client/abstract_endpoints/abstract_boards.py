@@ -23,3 +23,10 @@ class AbstractBoards(ABC):
         Create a public seek, to start a game with a random player.
         """
         pass
+
+    @abstractmethod
+    def stream_game_state(self, game_id: str):
+        """
+        Stream the state of a game being played with the Board API
+        """
+        pass

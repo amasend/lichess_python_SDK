@@ -8,7 +8,7 @@ if sys.version_info >= (3, 7):
 else:
     from asyncio import get_event_loop
 
-from aiohttp import ClientSession
+from aiohttp import ClientSession, ClientTimeout
 import chess.pgn
 import io
 
@@ -159,7 +159,11 @@ class BaseClient:
         -------
         aiohttp.client_reqrep.ClientResponse with response details
         """
-        async with self.session.request(method=method.value, url=f"{LICHESS_URL}{url}", **kwargs) as resp:
+        timeout_settings = ClientTimeout(
+            total=None,
+        )
+        session = ClientSession(headers=self._headers, loop=self.loop, timeout=timeout_settings)
+        async with session.request(method=method.value, url=f"{LICHESS_URL}{url}", **kwargs) as resp:
 
             async for body, _ in resp.content.iter_chunks():    # note: streaming content!
                 if resp.status == 404:

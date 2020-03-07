@@ -55,3 +55,4 @@ BOTS_STREAM_INCOMING_EVENTS = 'api/stream/event'
 ##########
 BOARDS_STREAM_INCOMING_EVENTS = 'api/stream/event'
 BOARDS_CREATE_A_SEEK = 'api/board/seek'
+BOARDS_STREAM_GAME_STATE = 'api/board/game/stream/{gameId}'
