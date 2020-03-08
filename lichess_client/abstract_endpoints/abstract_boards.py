@@ -35,3 +35,18 @@ class AbstractBoards(ABC):
     def make_move(self, game_id: str, move: str, draw: bool):
         """Make a move in a game being played with the Board API."""
         pass
+
+    @abstractmethod
+    def abort_game(self, game_id: str):
+        """Abort a game being played with the Board API."""
+        pass
+
+    @abstractmethod
+    def resign_game(self, game_id: str):
+        """Resign a game being played with the Board API."""
+        pass
+
+    @abstractmethod
+    def write_in_chat(self, game_id: str, room: 'RoomTypes', message: str):
+        """Post a message to the player or spectator chat, in a game being played with the Board API."""
+        pass

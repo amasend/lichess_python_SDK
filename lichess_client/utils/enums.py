@@ -40,6 +40,12 @@ class ColorType(str, Enum):
     RANDOM = "random"
 
 
+class RoomTypes(str, Enum):
+    """Room types to posting user message."""
+    PLAYER = "player"
+    SPECTATOR = "SPECTATOR"
+
+
 class SideTypes(Enum):
     """Side enum for Game description"""
     WHITE = 1

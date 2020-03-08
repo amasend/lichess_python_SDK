@@ -2,10 +2,10 @@ import json
 from typing import TYPE_CHECKING, List
 
 from lichess_client.abstract_endpoints.abstract_boards import AbstractBoards
-from lichess_client.utils.enums import RequestMethods, VariantTypes, ColorType
+from lichess_client.utils.enums import RequestMethods, VariantTypes, ColorType, RoomTypes
 from lichess_client.utils.client_errors import RatingRangeError
 from lichess_client.utils.hrefs import (BOARDS_STREAM_INCOMING_EVENTS, BOARDS_CREATE_A_SEEK, BOARDS_STREAM_GAME_STATE,
-                                        BOARDS_MAKE_MOVE)
+                                        BOARDS_MAKE_MOVE, BOARDS_ABORT_GAME, BOARDS_RESIGN_GAME, BOARDS_WRITE_IN_CHAT)
 
 if TYPE_CHECKING:
     from lichess_client.clients.base_client import BaseClient
@@ -178,8 +178,107 @@ class Boards(AbstractBoards):
             'offeringDraw': json.dumps(draw)
         }
 
-        response = await self._client.request_stream(method=RequestMethods.POST,
-                                                     url=BOARDS_MAKE_MOVE.format(gameId=game_id, move=move),
-                                                     params=parameters,
-                                                     headers=headers)
+        response = await self._client.request(method=RequestMethods.POST,
+                                              url=BOARDS_MAKE_MOVE.format(gameId=game_id, move=move),
+                                              params=parameters,
+                                              headers=headers)
+        return response
+
+    async def abort_game(self, game_id: str) -> 'Response':
+        """
+        Abort a game being played with the Board API.
+
+        Parameters
+        ----------
+        game_id: str, required
+            ID of the current playing game.
+
+        Returns
+        -------
+        Response object with response content.
+
+        Example
+        -------
+        >>> from lichess_client import APIClient
+        >>> client = APIClient(token='...')
+        >>> response = await client.boards.abort_game(game_id='5IrD6Gzz')
+        """
+
+        headers = {
+            'Content-Type': 'application/json'
+        }
+
+        response = await self._client.request(method=RequestMethods.POST,
+                                              url=BOARDS_ABORT_GAME.format(gameId=game_id),
+                                              headers=headers)
+        return response
+
+    async def resign_game(self, game_id: str) -> 'Response':
+        """
+        Resign a game being played with the Board API.
+
+        Parameters
+        ----------
+        game_id: str, required
+            ID of the current playing game.
+
+        Returns
+        -------
+        Response object with response content.
+
+        Example
+        -------
+        >>> from lichess_client import APIClient
+        >>> client = APIClient(token='...')
+        >>> response = await client.boards.resign_game(game_id='5IrD6Gzz')
+        """
+
+        headers = {
+            'Content-Type': 'application/json'
+        }
+
+        response = await self._client.request(method=RequestMethods.POST,
+                                              url=BOARDS_RESIGN_GAME.format(gameId=game_id),
+                                              headers=headers)
+        return response
+
+    async def write_in_chat(self, game_id: str, message: str, room: 'RoomTypes' = RoomTypes.PLAYER):
+        """
+        Post a message to the player or spectator chat, in a game being played with the Board API.
+
+        Parameters
+        ----------
+        game_id: str, required
+            ID of the current playing game.
+
+        room: RoomTypes, optional
+            Room where to post a message [player, spectator].
+
+        message: str, required
+            User message to post.
+
+        Returns
+        -------
+        Response object with response content.
+
+        Example
+        -------
+        >>> from lichess_client import APIClient
+        >>> client = APIClient(token='...')
+        >>> response_1 = await client.boards.write_in_chat(game_id='5IrD6Gzz', message="Hello!")
+        >>> response_2 = await client.boards.write_in_chat(game_id='5IrD6Gzz', message="Hi all!", room=RoomTypes.SPECTATOR)
+        """
+
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        data = {
+            'room': json.dumps(room),
+            'text': message
+        }
+
+        response = await self._client.request(method=RequestMethods.POST,
+                                              url=BOARDS_WRITE_IN_CHAT.format(gameId=game_id),
+                                              data=data,
+                                              headers=headers)
         return response

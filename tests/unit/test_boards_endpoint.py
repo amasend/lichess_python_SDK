@@ -47,6 +47,34 @@ class TestBoardsEndpoint(unittest.TestCase):
         self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
         self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
 
+    @async_test
+    async def test_05__abort_game__aborting_a_game__response_object_returned_with_success(self):
+        response = await self.client.boards.abort_game(game_id=self.game_id)
+        print(response)
+
+        self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
+        self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
+
+    @async_test
+    async def test_06__resign_game__resigning_a_game__response_object_returned_with_success(self):
+        response = await self.client.boards.resign_game(game_id=self.game_id)
+        print(response)
+
+        self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
+        self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
+
+    @async_test
+    async def test_07__write_in_chat__posting_user_message__response_object_returned_with_success(self):
+        response = await self.client.boards.write_in_chat(game_id=self.game_id, message="Hello!")
+        print(response)
+        from lichess_client.utils.enums import RoomTypes
+        response = await self.client.boards.write_in_chat(game_id=self.game_id, message="Hi all!",
+                                                          room=RoomTypes.SPECTATOR)
+        print(response)
+
+        self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
+        self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
+
 
 if __name__ == '__main__':
     unittest.main()
