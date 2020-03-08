@@ -17,7 +17,7 @@ class TestAccountEndpoint(unittest.TestCase):
 
     @async_test
     async def test_01__export_one_game__fetching_finished_game_details__response_object_returned_with_success(self):
-        response = await self.client.games.export_one_game(game_id='Haw7aw6f')
+        response = await self.client.games.export_one_game(game_id='j5wCnxuX')
         print(response)
 
         self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")

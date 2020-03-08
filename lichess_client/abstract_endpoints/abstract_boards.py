@@ -30,3 +30,8 @@ class AbstractBoards(ABC):
         Stream the state of a game being played with the Board API
         """
         pass
+
+    @abstractmethod
+    def make_move(self, game_id: str, move: str, draw: bool):
+        """Make a move in a game being played with the Board API."""
+        pass

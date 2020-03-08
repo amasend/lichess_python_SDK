@@ -4,12 +4,12 @@ from typing import TYPE_CHECKING, List
 from lichess_client.abstract_endpoints.abstract_boards import AbstractBoards
 from lichess_client.utils.enums import RequestMethods, VariantTypes, ColorType
 from lichess_client.utils.client_errors import RatingRangeError
-from lichess_client.utils.hrefs import BOARDS_STREAM_INCOMING_EVENTS, BOARDS_CREATE_A_SEEK, BOARDS_STREAM_GAME_STATE
+from lichess_client.utils.hrefs import (BOARDS_STREAM_INCOMING_EVENTS, BOARDS_CREATE_A_SEEK, BOARDS_STREAM_GAME_STATE,
+                                        BOARDS_MAKE_MOVE)
 
 if TYPE_CHECKING:
     from lichess_client.clients.base_client import BaseClient
     from lichess_client.helpers import Response
-
 
 __all__ = [
     "Boards"
@@ -139,3 +139,47 @@ class Boards(AbstractBoards):
                                                                    url=BOARDS_STREAM_GAME_STATE.format(gameId=game_id),
                                                                    headers=headers):
             yield response
+
+    async def make_move(self,
+                        game_id: str,
+                        move: str,
+                        draw: bool = False) -> 'Response':
+        """
+        Make a move in a game being played with the Board API.
+        The move can also contain a draw offer/agreement.
+
+
+        Parameters
+        ----------
+        game_id: str, required
+            ID of the current playing game.
+
+        move: str, required
+            Move in UCI format.
+
+        draw: bool, optional
+            Offer or accept a draw.
+
+        Returns
+        -------
+        Response object with response content.
+
+        Example
+        -------
+        >>> from lichess_client import APIClient
+        >>> client = APIClient(token='...')
+        >>> response = await client.boards.make_move(game_id='5IrD6Gzz', move='e2e4')
+        """
+
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        parameters = {
+            'offeringDraw': json.dumps(draw)
+        }
+
+        response = await self._client.request_stream(method=RequestMethods.POST,
+                                                     url=BOARDS_MAKE_MOVE.format(gameId=game_id, move=move),
+                                                     params=parameters,
+                                                     headers=headers)
+        return response

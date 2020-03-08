@@ -38,3 +38,17 @@ class ColorType(str, Enum):
     WHITE = "white"
     BLACK = "black"
     RANDOM = "random"
+
+
+class SideTypes(Enum):
+    """Side enum for Game description"""
+    WHITE = 1
+    BLACK = -1
+
+
+# TODO: check more statuses
+class GameStatusTypes(str, Enum):
+    """Game status"""
+    RESIGN = 'resign'
+    STARTED = 'started'
+
