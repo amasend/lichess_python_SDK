@@ -17,6 +17,7 @@ class StatusTypes(str, Enum):
 
 class VariantTypes(str, Enum):
     """Game variant types"""
+    STANDARD = "standard"
     ULTRA_BULLET = "ultraBullet"
     BULLET = "bullet"
     BLITZ = "blitz"
@@ -30,3 +31,30 @@ class VariantTypes(str, Enum):
     KING_OF_THE_HILL = "kingOfTheHill"
     RACING_KINGS = "racingKings"
     THRESS_CHECK = "threeCheck"
+
+
+class ColorType(str, Enum):
+    """Color of the user pawns."""
+    WHITE = "white"
+    BLACK = "black"
+    RANDOM = "random"
+
+
+class RoomTypes(str, Enum):
+    """Room types to posting user message."""
+    PLAYER = "player"
+    SPECTATOR = "SPECTATOR"
+
+
+class SideTypes(Enum):
+    """Side enum for Game description"""
+    WHITE = 1
+    BLACK = -1
+
+
+# TODO: check more statuses
+class GameStatusTypes(str, Enum):
+    """Game status"""
+    RESIGN = 'resign'
+    STARTED = 'started'
+

@@ -10,10 +10,12 @@ if TYPE_CHECKING:
 class BaseHelper:
     """Base Helper class with defined custom magic methods, also for to dictionary conversion."""
     def to_dict(self) -> dict:
-        _dict: dict = deepcopy(vars(self))
-        for key, val in _dict.items():
+        _dict: dict = {}
+        for key, val in vars(self).items():
             if hasattr(val, 'to_dict'):
                 _dict[key] = val.to_dict()
+            else:
+                _dict[key] = val
         return _dict
 
     def __repr__(self):

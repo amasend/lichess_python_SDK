@@ -32,3 +32,47 @@ RELATIONS_FOLLOWERS_URL = 'api/users/{username}/followers'
 # GAMES #
 #########
 GAMES_EXPORT_ONE_URL = 'game/export/{gameId}'
+GAMES_EXPORT_USER_URL = 'api/games/user/{username}'
+GAMES_EXPORT_IDS_URL = 'games/export/_ids'
+GAMES_STREAM_CURRENT_URL = 'api/stream/games-by-users'
+GAMES_ONGOING_URL = 'api/account/playing'
+GAMES_CURRENT_TV_URL = 'tv/channels'
+
+#########
+# TEAMS #
+#########
+TEAMS_JOIN_URL = 'team/{teamId}/join'
+TEAMS_LEAVE_URL = 'team/{teamId}/quit'
+TEAMS_KICK_USER_URL = '/team/{teamId}/kick/{userId}'
+
+########
+# BOTS #
+########
+BOTS_STREAM_INCOMING_EVENTS = 'api/stream/event'
+
+##########
+# BOARDS #
+##########
+BOARDS_STREAM_INCOMING_EVENTS = 'api/stream/event'
+BOARDS_CREATE_A_SEEK = 'api/board/seek'
+BOARDS_STREAM_GAME_STATE = 'api/board/game/stream/{gameId}'
+BOARDS_MAKE_MOVE = 'api/board/game/{gameId}/move/{move}'
+BOARDS_ABORT_GAME = 'api/board/game/{gameId}/abort'
+BOARDS_RESIGN_GAME = 'api/board/game/{gameId}/resign'
+BOARDS_WRITE_IN_CHAT = 'api/board/game/{gameId}/chat'
+
+##############
+# CHALLENGES #
+##############
+CHALLENGES_CREATE = 'api/challenge/{username}'
+CHALLENGES_ACCEPT = 'api/challenge/{challengeId}/accept'
+CHALLENGES_DECLINE = 'api/challenge/{challengeId}/decline'
+
+###############
+# TOURNAMENTS #
+###############
+TOURNAMENTS_CURRENT = "api/tournament"
+TOURNAMENTS_CREATE = "api/tournament"
+TOURNAMENTS_EXPORT_GAMES = "api/tournament/{id}/games"
+TOURNAMENTS_EXPORT_RESULTS = "api/tournament/{id}/results"
+TOURNAMENTS_GET_CREATED_BY_USER = "api/user/{username}/tournament/created"

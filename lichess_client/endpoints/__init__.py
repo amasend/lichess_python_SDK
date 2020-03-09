@@ -10,3 +10,5 @@ from lichess_client.endpoints.studies import Studies
 from lichess_client.endpoints.teams import Teams
 from lichess_client.endpoints.tournaments import Tournaments
 from lichess_client.endpoints.users import Users
+from lichess_client.endpoints.bots import Bots
+from lichess_client.endpoints.boards import Boards

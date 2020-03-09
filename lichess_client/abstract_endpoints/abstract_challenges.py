@@ -9,13 +9,24 @@ class AbstractChallenges(ABC):
         pass
 
     @abstractmethod
-    def create_a_challenge(self):
+    def create(self,
+               username: str,
+               time_limit: int,
+               time_increment: int,
+               rated: bool,
+               days: int,
+               color: 'ColorType',
+               variant: 'VariantTypes',
+               position: str):
+        """Challenge someone to play."""
         pass
 
     @abstractmethod
-    def accept_a_challenge(self):
+    def accept(self, challenge_id: str):
+        """Accept an incoming challenge."""
         pass
 
     @abstractmethod
-    def decline_a_challenge(self):
+    def decline(self, challenge_id: str):
+        """Decline an incoming challenge."""
         pass
