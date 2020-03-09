@@ -67,3 +67,12 @@ BOARDS_WRITE_IN_CHAT = 'api/board/game/{gameId}/chat'
 CHALLENGES_CREATE = 'api/challenge/{username}'
 CHALLENGES_ACCEPT = 'api/challenge/{challengeId}/accept'
 CHALLENGES_DECLINE = 'api/challenge/{challengeId}/decline'
+
+###############
+# TOURNAMENTS #
+###############
+TOURNAMENTS_CURRENT = "api/tournament"
+TOURNAMENTS_CREATE = "api/tournament"
+TOURNAMENTS_EXPORT_GAMES = "api/tournament/{id}/games"
+TOURNAMENTS_EXPORT_RESULTS = "api/tournament/{id}/results"
+TOURNAMENTS_GET_CREATED_BY_USER = "api/user/{username}/tournament/created"

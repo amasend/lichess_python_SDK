@@ -9,9 +9,9 @@ if TYPE_CHECKING:
     from lichess_client.clients.base_client import BaseClient
     from lichess_client.helpers import Response
 
-__all__ = {
+__all__ = [
     "Challenges"
-}
+]
 
 
 class Challenges(AbstractChallenges):

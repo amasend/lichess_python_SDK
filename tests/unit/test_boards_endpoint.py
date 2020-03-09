@@ -9,7 +9,7 @@ from tests.utils import get_token_from_config, async_test
 class TestBoardsEndpoint(unittest.TestCase):
     client = None
     token = get_token_from_config('amasend')
-    game_id = 'j5wCnxuX'
+    game_id = 'IxJ26EAH'
 
     @classmethod
     def setUp(cls) -> None:
@@ -41,7 +41,7 @@ class TestBoardsEndpoint(unittest.TestCase):
 
     @async_test
     async def test_04__make_move__send_a_move__response_object_returned_with_success(self):
-        response = await self.client.boards.make_move(game_id=self.game_id, move='g5f3')
+        response = await self.client.boards.make_move(game_id=self.game_id, move='g8f6')
         print(response)
 
         self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
