@@ -1,5 +1,8 @@
-from typing import List
 from abc import ABC, abstractmethod
+from typing import TYPE_CHECKING, List
+
+if TYPE_CHECKING:
+    from lichess_client.utils.enums import VariantTypes, ColorType
 
 
 class AbstractGames(ABC):

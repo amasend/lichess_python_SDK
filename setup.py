@@ -1,7 +1,7 @@
+import setuptools
+
 with open('VERSION.txt', 'r') as f:
     version = f.read()
-
-import setuptools
 
 with open("README.md", "r") as fh:
     long_description = fh.read()

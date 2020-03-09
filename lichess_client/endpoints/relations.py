@@ -6,6 +6,7 @@ from lichess_client.utils.hrefs import RELATIONS_FOLLOWERS_URL, RELATIONS_FOLLOW
 
 if TYPE_CHECKING:
     from lichess_client.clients.base_client import BaseClient
+    from lichess_client.helpers import Response
 
 
 class Relations(AbstractRelations):

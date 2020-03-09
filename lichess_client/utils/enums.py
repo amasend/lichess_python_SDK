@@ -23,7 +23,7 @@ class VariantTypes(str, Enum):
     BLITZ = "blitz"
     RAPID = "rapid"
     CLASSICAL = "classical"
-    CHESS960="chess960"
+    CHESS960 = "chess960"
     CRAZYHOUSE = "crazyhouse"
     ANTICHESS = "antichess"
     ATOMIC = "atomic"
@@ -57,4 +57,3 @@ class GameStatusTypes(str, Enum):
     """Game status"""
     RESIGN = 'resign'
     STARTED = 'started'
-
