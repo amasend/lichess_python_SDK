@@ -233,7 +233,7 @@ class Games(AbstractGames):
         >>> client = APIClient(token='...')
         >>> response = client.users.stream_current_games(users=['amasend', 'lovlas', 'chess-network'])
         """
-        raise NotImplemented("This method is not implemented yet.")
+        raise NotImplementedError("This method is not implemented yet.")
         if len(users) > 300:
             raise ToManyIDs('stream_current_games',
                             reason="Cannot fetch more than 300 games at once. Please specify less than 300 users.")

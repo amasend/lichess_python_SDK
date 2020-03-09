@@ -1,6 +1,8 @@
 from lichess_client.clients.abstract_client import AbstractClient
 from lichess_client.clients.base_client import BaseClient
-from lichess_client.endpoints import *
+from lichess_client.endpoints import (
+    Account, Broadcast, Challenges, ChessBot, Games, Messaging, Relations, Simulations, Studies, Teams, Tournaments,
+    Users, Bots, Boards)
 
 
 class APIClient(AbstractClient):

@@ -1,5 +1,4 @@
 from typing import List, Union, TYPE_CHECKING
-from copy import deepcopy
 
 from lichess_client.utils.enums import RequestMethods, StatusTypes
 
@@ -9,6 +8,7 @@ if TYPE_CHECKING:
 
 class BaseHelper:
     """Base Helper class with defined custom magic methods, also for to dictionary conversion."""
+
     def to_dict(self) -> dict:
         _dict: dict = {}
         for key, val in vars(self).items():
@@ -27,7 +27,8 @@ class BaseHelper:
 
 class ResponseMetadata(BaseHelper):
     """Metadata class for the response object."""
-    def __init__(self, method: str,  url: str, content_type: str, timestamp: bytes) -> None:
+
+    def __init__(self, method: str, url: str, content_type: str, timestamp: bytes) -> None:
         self.method = RequestMethods[method]
         self.url = url
         self.content_type = content_type
@@ -36,6 +37,7 @@ class ResponseMetadata(BaseHelper):
 
 class ResponseEntity(BaseHelper):
     """Entity class for the response object."""
+
     def __init__(self, code: int, reason: str, status: 'StatusTypes', content: Union[List[dict], dict, 'Game']) -> None:
         self.code = code
         self.reason = reason
@@ -45,6 +47,7 @@ class ResponseEntity(BaseHelper):
 
 class Response(BaseHelper):
     """The Response class. Used to store every API response in the unified way."""
+
     def __init__(self, metadata: 'ResponseMetadata', entity: 'ResponseEntity') -> None:
         self.metadata = metadata
         self.entity = entity

@@ -29,8 +29,8 @@ class Challenges(AbstractChallenges):
         --------
         lichess_client.APIClient.boards.stream_incoming_events()
         """
-        raise NotImplemented("This method is implemented in \"boards\" endpoint."
-                             "Please see: lichess_client.APIClient.boards.stream_incoming_events()")
+        raise NotImplementedError("This method is implemented in \"boards\" endpoint."
+                                  "Please see: lichess_client.APIClient.boards.stream_incoming_events()")
 
     async def create(self,
                      username: str,

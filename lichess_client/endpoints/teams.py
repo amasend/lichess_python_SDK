@@ -22,7 +22,7 @@ class Teams(AbstractTeams):
         --------
         client.users.get_members_of_a_team(...)
         """
-        raise NotImplemented("Please use client.users.get_members_of_a_team(...)")
+        raise NotImplementedError("Please use client.users.get_members_of_a_team(...)")
 
     async def join_a_team(self, team_id: str) -> 'Response':
         """

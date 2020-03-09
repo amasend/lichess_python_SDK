@@ -1,20 +1,18 @@
-import sys
-import json
 import io
+import json
+import sys
 from typing import Any, AsyncIterable
+
+import chess.pgn
+from aiohttp import ClientSession, ClientTimeout
+from lichess_client.helpers import Response, ResponseEntity, ResponseMetadata
+from lichess_client.utils.enums import RequestMethods, StatusTypes
+from lichess_client.utils.hrefs import ACCOUNT_URL, LICHESS_URL
 
 if sys.version_info >= (3, 7):
     from asyncio import get_running_loop
 else:
     from asyncio import get_event_loop
-
-from aiohttp import ClientSession, ClientTimeout
-import chess.pgn
-import io
-
-from lichess_client.helpers import Response, ResponseEntity, ResponseMetadata
-from lichess_client.utils.enums import RequestMethods, StatusTypes
-from lichess_client.utils.hrefs import ACCOUNT_URL, LICHESS_URL
 
 
 class BaseClient:

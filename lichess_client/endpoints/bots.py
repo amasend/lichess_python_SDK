@@ -1,4 +1,3 @@
-import json
 from typing import TYPE_CHECKING
 
 from lichess_client.abstract_endpoints.abstract_bots import AbstractBots
