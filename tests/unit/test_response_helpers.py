@@ -1,5 +1,4 @@
 import unittest
-import json
 
 from lichess_client.helpers import ResponseMetadata, ResponseEntity, Response
 from lichess_client.utils.enums import RequestMethods, StatusTypes

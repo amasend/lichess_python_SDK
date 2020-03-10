@@ -25,8 +25,8 @@ USERS_LIVE_STREAMERS_URL = 'streamer/live'
 #############
 # RELATIONS #
 #############
-RELATIONS_FOLLOWING_URL = 'api/users/{username}/following'
-RELATIONS_FOLLOWERS_URL = 'api/users/{username}/followers'
+RELATIONS_FOLLOWING_URL = 'api/user/{username}/following'
+RELATIONS_FOLLOWERS_URL = 'api/user/{username}/followers'
 
 #########
 # GAMES #
