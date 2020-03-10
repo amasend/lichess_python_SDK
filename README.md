@@ -1,4 +1,4 @@
-![Lichess Python SDK master](https://github.com/amasend/lichees_python_SDK/workflows/Lichess%20Python%20SDK/badge.svg?branch=master)
+![Lichess Python SDK](https://github.com/amasend/lichees_python_SDK/workflows/Lichess%20Python%20SDK/badge.svg?branch=master)
 # lichees_python_SDK
 
 # Description
