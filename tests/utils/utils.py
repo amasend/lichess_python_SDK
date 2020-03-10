@@ -23,5 +23,5 @@ def get_token_from_config(section: str) -> str:
         config.read('credentials.ini')
         return config.get(section, 'token')
 
-    except KeyError:
+    except:
         return os.environ[section]
