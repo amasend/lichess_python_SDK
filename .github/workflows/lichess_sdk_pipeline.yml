@@ -4,6 +4,7 @@
 name: Lichess Python SDK
 env:
   amasend: ${{ secrets.lichess_amasend_account }}
+  connector_123: ${{ secrets.connector_123 }}
 
 on:
   push:
