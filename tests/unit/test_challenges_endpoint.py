@@ -6,6 +6,7 @@ from lichess_client.utils.enums import StatusTypes
 from tests.utils import get_token_from_config, async_test
 
 
+# TODO: write some functional test with pytest (fire in Github workflow)
 class TestChallengesEndpoint(unittest.TestCase):
     client = None
     token = get_token_from_config('amasend')
@@ -14,6 +15,7 @@ class TestChallengesEndpoint(unittest.TestCase):
     def setUp(cls) -> None:
         cls.client = APIClient(token=cls.token)
 
+    @unittest.SkipTest
     @async_test
     async def test_01__create_a_challenge__sent_challenge_invitation__response_object_returned_with_success(self):
         response = await self.client.challenges.create(username='some_user')
@@ -22,6 +24,7 @@ class TestChallengesEndpoint(unittest.TestCase):
         self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
         self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
 
+    @unittest.SkipTest
     @async_test
     async def test_02__accept_a_challenge__accepting_a_challenge__response_object_returned_with_success(self):
         response = await self.client.challenges.accept(username='some_user')
@@ -30,6 +33,7 @@ class TestChallengesEndpoint(unittest.TestCase):
         self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")
         self.assertEqual(response.entity.status, StatusTypes.SUCCESS, msg="Request was unsuccessful.")
 
+    @unittest.SkipTest
     @async_test
     async def test_03__decline_a_challenge__declining_a_challenge__response_object_returned_with_success(self):
         response = await self.client.challenges.decline(username='some_user')

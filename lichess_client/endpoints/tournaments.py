@@ -214,10 +214,10 @@ class Tournaments(AbstractTournaments):
             'opening': 'true',
         }
 
-        response = await self._client.request(method=RequestMethods.GET,
-                                              url=TOURNAMENTS_EXPORT_GAMES.format(id=tournament_id),
-                                              headers=headers,
-                                              params=parameters)
+        response = await self._client.request_stream(method=RequestMethods.GET,
+                                                     url=TOURNAMENTS_EXPORT_GAMES.format(id=tournament_id),
+                                                     headers=headers,
+                                                     params=parameters)
         return response
 
     async def get_results(self, tournament_id: str, limit: int = 10) -> 'Response':
@@ -251,10 +251,10 @@ class Tournaments(AbstractTournaments):
         parameters = {
             'nb': limit
         }
-        response = await self._client.request(method=RequestMethods.GET,
-                                              url=TOURNAMENTS_EXPORT_RESULTS.format(id=tournament_id),
-                                              headers=headers,
-                                              params=parameters)
+        response = await self._client.request_stream(method=RequestMethods.GET,
+                                                     url=TOURNAMENTS_EXPORT_RESULTS.format(id=tournament_id),
+                                                     headers=headers,
+                                                     params=parameters)
         return response
 
     async def get_tournaments_created_by_a_user(self, username: str, limit: int = 10) -> 'Response':

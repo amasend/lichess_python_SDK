@@ -14,6 +14,7 @@ class TestBotsEndpoint(unittest.TestCase):
     def setUp(cls) -> None:
         cls.client = APIClient(token=cls.token)
 
+    @unittest.SkipTest
     @async_test
     async def test_01__stream_incoming_events__fetching_information_about_incoming_game__response_object_returned_with_success(self):
         response = await self.client.bots.stream_incoming_events()
