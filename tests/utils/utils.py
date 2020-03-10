@@ -1,5 +1,6 @@
 import inspect
 import configparser
+import os
 from asyncio import coroutine, get_event_loop
 
 
@@ -16,7 +17,11 @@ def async_test(f):
 
 
 def get_token_from_config(section: str) -> str:
-    """Read token from configuration file."""
-    config = configparser.ConfigParser()
-    config.read('credentials.ini')
-    return config.get(section, 'token')
+    """Read token from configuration file or environment."""
+    try:
+        config = configparser.ConfigParser()
+        config.read('credentials.ini')
+        return config.get(section, 'token')
+
+    except:
+        return os.environ[section]
