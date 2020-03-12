@@ -76,3 +76,10 @@ TOURNAMENTS_CREATE = "api/tournament"
 TOURNAMENTS_EXPORT_GAMES = "api/tournament/{id}/games"
 TOURNAMENTS_EXPORT_RESULTS = "api/tournament/{id}/results"
 TOURNAMENTS_GET_CREATED_BY_USER = "api/user/{username}/tournament/created"
+
+###############
+# BROADCASTS  #
+###############
+BROADCASTS_CREATE = "broadcast/new"
+BROADCASTS_GET = "broadcast/-/{broadcastId}"
+BROADCASTS_PUSH_PGN = "broadcast/-/{broadcastId}/push"
