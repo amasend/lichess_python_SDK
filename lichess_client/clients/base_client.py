@@ -54,6 +54,9 @@ class BaseClient:
             if resp.content_type == 'application/x-chess-pgn':
                 body = await resp.text()
                 body = chess.pgn.read_game(io.StringIO(body))
+
+            elif resp.content_type == 'text/plain':
+                body = await resp.text()
             else:
                 body = await resp.read()
 

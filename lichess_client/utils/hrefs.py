@@ -88,3 +88,8 @@ BROADCASTS_PUSH_PGN = "broadcast/-/{broadcastId}/push"
 # SIMULATIONS #
 ###############
 SIMULATIONS_GET = "api/simul"
+
+###############
+# SIMULATIONS #
+###############
+MESSAGES_SEND = "inbox/{username}"
