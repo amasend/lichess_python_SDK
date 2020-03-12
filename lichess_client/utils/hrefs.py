@@ -83,3 +83,8 @@ TOURNAMENTS_GET_CREATED_BY_USER = "api/user/{username}/tournament/created"
 BROADCASTS_CREATE = "broadcast/new"
 BROADCASTS_GET = "broadcast/-/{broadcastId}"
 BROADCASTS_PUSH_PGN = "broadcast/-/{broadcastId}/push"
+
+###############
+# SIMULATIONS #
+###############
+SIMULATIONS_GET = "api/simul"
