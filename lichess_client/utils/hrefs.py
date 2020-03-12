@@ -76,3 +76,26 @@ TOURNAMENTS_CREATE = "api/tournament"
 TOURNAMENTS_EXPORT_GAMES = "api/tournament/{id}/games"
 TOURNAMENTS_EXPORT_RESULTS = "api/tournament/{id}/results"
 TOURNAMENTS_GET_CREATED_BY_USER = "api/user/{username}/tournament/created"
+
+###############
+# BROADCASTS  #
+###############
+BROADCASTS_CREATE = "broadcast/new"
+BROADCASTS_GET = "broadcast/-/{broadcastId}"
+BROADCASTS_PUSH_PGN = "broadcast/-/{broadcastId}/push"
+
+###############
+# SIMULATIONS #
+###############
+SIMULATIONS_GET = "api/simul"
+
+############
+# MESSAGES #
+############
+MESSAGES_SEND = "inbox/{username}"
+
+###########
+# STUDIES #
+###########
+STUDIES_EXPORT_CHAPTER = "study/{studyId}/{chapterId}.pgn"
+STUDIES_EXPORT_ALL_CHAPTERS = "study/{studyId}.pgn"

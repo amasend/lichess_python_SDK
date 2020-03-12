@@ -5,5 +5,6 @@ class AbstractSimulations(ABC):
     """An abstract class for Simulations API Endpoint"""
 
     @abstractmethod
-    def get_current_simuls(self):
+    def get_current(self):
+        """Get recently finished, ongoing, and upcoming simuls."""
         pass
