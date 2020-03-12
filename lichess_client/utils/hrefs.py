@@ -89,7 +89,13 @@ BROADCASTS_PUSH_PGN = "broadcast/-/{broadcastId}/push"
 ###############
 SIMULATIONS_GET = "api/simul"
 
-###############
-# SIMULATIONS #
-###############
+############
+# MESSAGES #
+############
 MESSAGES_SEND = "inbox/{username}"
+
+###########
+# STUDIES #
+###########
+STUDIES_EXPORT_CHAPTER = "study/{studyId}/{chapterId}.pgn"
+STUDIES_EXPORT_ALL_CHAPTERS = "study/{studyId}.pgn"
