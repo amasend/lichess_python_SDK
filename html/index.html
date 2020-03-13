@@ -1,0 +1,1356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to async_lichess_sdk’s documentation! &mdash; async_lichess_sdk 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> async_lichess_sdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to async_lichess_sdk’s documentation!</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#available-modules-endpoints">Available Modules / Endpoints</a><ul>
+<li><a class="reference internal" href="#module-lichess_client.clients.client">APIClient</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.account">Account</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.boards">Boards</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.bots">Bots</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.broadcast">Broadcast</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.challenges">Challenges</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.games">Games</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.messaging">Messaging</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.relations">Relations</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.simulations">Simulations</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.studies">Studies</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.teams">Teams</a></li>
+<li><a class="reference internal" href="#tournaments">Tournaments</a></li>
+<li><a class="reference internal" href="#module-lichess_client.endpoints.users">Users</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lichess_client.helpers.response_helpers">Helpers</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">async_lichess_sdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to async_lichess_sdk’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-async-lichess-sdk-s-documentation">
+<h1>Welcome to async_lichess_sdk’s documentation!<a class="headerlink" href="#welcome-to-async-lichess-sdk-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This package is meant to be an unofficial Python API Client for lichees.org.
+For information about the API please refer to <a class="reference external" href="https://lichess.org/api">https://lichess.org/api</a>
+Every API endpoint uses async Python methods (asyncio).</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/aio-libs/aiohttp">aiohttp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/niklasf/python-chess">python-chess</a></p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas">pandas</a></p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>You can just install me from a test PyPi</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --index-url https://test.pypi.org/simple/ async_lichess_sdk
+</pre></div>
+</div>
+</div>
+<div class="section" id="available-modules-endpoints">
+<h1>Available Modules / Endpoints<a class="headerlink" href="#available-modules-endpoints" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-lichess_client.clients.client">
+<span id="apiclient"></span><h2>APIClient<a class="headerlink" href="#module-lichess_client.clients.client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.clients.client.APIClient">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.clients.client.</code><code class="sig-name descname">APIClient</code><span class="sig-paren">(</span><em class="sig-param">token: str</em>, <em class="sig-param">loop=None</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.clients.client.APIClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>ASYNC APIClient class for handling secure connections with Lichees API via token usage.</p>
+<dl class="simple">
+<dt>token: str, required</dt><dd><p>String with token provided from Lichees.org account site.</p>
+</dd>
+<dt>loop: asyncio event loop, optional</dt><dd><p>Asyncio event loop for async mode operations</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.account">
+<span id="account"></span><h2>Account<a class="headerlink" href="#module-lichess_client.endpoints.account" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.account.Account">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.account.</code><code class="sig-name descname">Account</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.account.Account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Account API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.account.Account.get_my_email_address">
+<em class="property">async </em><code class="sig-name descname">get_my_email_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.account.Account.get_my_email_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the email address of the logged in user.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">get_my_email_address</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.account.Account.get_my_kid_mode_status">
+<em class="property">async </em><code class="sig-name descname">get_my_kid_mode_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.account.Account.get_my_kid_mode_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the kid mode status of the logged in user.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">get_my_kid_mode_status</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.account.Account.get_my_preferences">
+<em class="property">async </em><code class="sig-name descname">get_my_preferences</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.account.Account.get_my_preferences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the preferences of the logged in user.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">get_my_preferences</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.account.Account.get_my_profile">
+<em class="property">async </em><code class="sig-name descname">get_my_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.account.Account.get_my_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Public information about the logged in user.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">get_my_profile</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.account.Account.set_my_kid_mode_status">
+<em class="property">async </em><code class="sig-name descname">set_my_kid_mode_status</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">turned_on: bool</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.account.Account.set_my_kid_mode_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the kid mode status of the logged in user.</p>
+<dl class="simple">
+<dt>turned_on: bool, required</dt><dd><p>The indicator to turn on or turn off the kid mode.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">set_my_kid_mode_status</span><span class="p">()()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.boards">
+<span id="boards"></span><h2>Boards<a class="headerlink" href="#module-lichess_client.endpoints.boards" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.boards.Boards">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.boards.</code><code class="sig-name descname">Boards</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.boards.Boards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Boards API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.boards.Boards.abort_game">
+<em class="property">async </em><code class="sig-name descname">abort_game</code><span class="sig-paren">(</span><em class="sig-param">game_id: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.boards.Boards.abort_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abort a game being played with the Board API.</p>
+<dl class="simple">
+<dt>game_id: str, required</dt><dd><p>ID of the current playing game.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">boards</span><span class="o">.</span><span class="n">abort_game</span><span class="p">(</span><span class="n">game_id</span><span class="o">=</span><span class="s1">&#39;5IrD6Gzz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.boards.Boards.create_a_seek">
+<em class="property">async </em><code class="sig-name descname">create_a_seek</code><span class="sig-paren">(</span><em class="sig-param">time: int</em>, <em class="sig-param">increment: int</em>, <em class="sig-param">variant: VariantTypes = &lt;VariantTypes.STANDARD: 'standard'&gt;</em>, <em class="sig-param">color: ColorType = &lt;ColorType.RANDOM: 'random'&gt;</em>, <em class="sig-param">rated: bool = False</em>, <em class="sig-param">rating_range: List[int] = None</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.boards.Boards.create_a_seek" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a public seek, to start a game with a random player.</p>
+<dl class="simple">
+<dt>rated: bool, optional</dt><dd><p>Whether the game is rated and impacts players ratings.</p>
+</dd>
+<dt>time: int, required</dt><dd><p>Clock initial time in minutes.</p>
+</dd>
+<dt>increment: int, required</dt><dd><p>Clock increment in seconds.</p>
+</dd>
+<dt>variant: VariantTypes, optional</dt><dd><dl class="simple">
+<dt>Enum: “standard” “chess960” “crazyhouse” “antichess” “atomic” “horde” “kingOfTheHill”</dt><dd><p>“racingKings” “threeCheck”
+The variant of the game.</p>
+</dd>
+</dl>
+</dd>
+<dt>color: ColorType, optional</dt><dd><dl class="simple">
+<dt>Enum: “random” “white” “black”</dt><dd><p>The color to play. Better left empty to automatically get 50% white</p>
+</dd>
+</dl>
+</dd>
+<dt>rating_range: List[int, int], optional</dt><dd><p>The rating range of potential opponents. Better left empty. Example: [1500, 1800]</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">boards</span><span class="o">.</span><span class="n">create_a_seek</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">increment</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.boards.Boards.make_move">
+<em class="property">async </em><code class="sig-name descname">make_move</code><span class="sig-paren">(</span><em class="sig-param">game_id: str</em>, <em class="sig-param">move: str</em>, <em class="sig-param">draw: bool = False</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.boards.Boards.make_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a move in a game being played with the Board API.
+The move can also contain a draw offer/agreement.</p>
+<dl class="simple">
+<dt>game_id: str, required</dt><dd><p>ID of the current playing game.</p>
+</dd>
+<dt>move: str, required</dt><dd><p>Move in UCI format.</p>
+</dd>
+<dt>draw: bool, optional</dt><dd><p>Offer or accept a draw.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">boards</span><span class="o">.</span><span class="n">make_move</span><span class="p">(</span><span class="n">game_id</span><span class="o">=</span><span class="s1">&#39;5IrD6Gzz&#39;</span><span class="p">,</span> <span class="n">move</span><span class="o">=</span><span class="s1">&#39;e2e4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.boards.Boards.resign_game">
+<em class="property">async </em><code class="sig-name descname">resign_game</code><span class="sig-paren">(</span><em class="sig-param">game_id: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.boards.Boards.resign_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resign a game being played with the Board API.</p>
+<dl class="simple">
+<dt>game_id: str, required</dt><dd><p>ID of the current playing game.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">boards</span><span class="o">.</span><span class="n">resign_game</span><span class="p">(</span><span class="n">game_id</span><span class="o">=</span><span class="s1">&#39;5IrD6Gzz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.boards.Boards.stream_game_state">
+<code class="sig-name descname">stream_game_state</code><span class="sig-paren">(</span><em class="sig-param">game_id: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.boards.Boards.stream_game_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stream the state of a game being played with the Board API</p>
+<dl class="simple">
+<dt>game_id: str, required</dt><dd><p>ID of the current playing game.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">async</span> <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">boards</span><span class="o">.</span><span class="n">stream_game_state</span><span class="p">(</span><span class="n">game_id</span><span class="o">=</span><span class="s1">&#39;5IrD6Gzz&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.boards.Boards.stream_incoming_events">
+<code class="sig-name descname">stream_incoming_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.boards.Boards.stream_incoming_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stream the events reaching a lichess user in real time.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">async</span> <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">boards</span><span class="o">.</span><span class="n">stream_incoming_events</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.boards.Boards.write_in_chat">
+<em class="property">async </em><code class="sig-name descname">write_in_chat</code><span class="sig-paren">(</span><em class="sig-param">game_id: str</em>, <em class="sig-param">message: str</em>, <em class="sig-param">room: lichess_client.utils.enums.RoomTypes = &lt;RoomTypes.PLAYER: 'player'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.boards.Boards.write_in_chat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post a message to the player or spectator chat, in a game being played with the Board API.</p>
+<dl class="simple">
+<dt>game_id: str, required</dt><dd><p>ID of the current playing game.</p>
+</dd>
+<dt>room: RoomTypes, optional</dt><dd><p>Room where to post a message [player, spectator].</p>
+</dd>
+<dt>message: str, required</dt><dd><p>User message to post.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response_1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">boards</span><span class="o">.</span><span class="n">write_in_chat</span><span class="p">(</span><span class="n">game_id</span><span class="o">=</span><span class="s1">&#39;5IrD6Gzz&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response_2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">boards</span><span class="o">.</span><span class="n">write_in_chat</span><span class="p">(</span><span class="n">game_id</span><span class="o">=</span><span class="s1">&#39;5IrD6Gzz&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Hi all!&quot;</span><span class="p">,</span> <span class="n">room</span><span class="o">=</span><span class="n">RoomTypes</span><span class="o">.</span><span class="n">SPECTATOR</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.bots">
+<span id="bots"></span><h2>Bots<a class="headerlink" href="#module-lichess_client.endpoints.bots" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.bots.Bots">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.bots.</code><code class="sig-name descname">Bots</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.bots.Bots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Bots API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.bots.Bots.stream_incoming_events">
+<em class="property">async </em><code class="sig-name descname">stream_incoming_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.bots.Bots.stream_incoming_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stream the events reaching a lichess user in real time.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">bots</span><span class="o">.</span><span class="n">get_my_profile</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.broadcast">
+<span id="broadcast"></span><h2>Broadcast<a class="headerlink" href="#module-lichess_client.endpoints.broadcast" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.broadcast.Broadcast">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.broadcast.</code><code class="sig-name descname">Broadcast</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.broadcast.Broadcast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Broadcast API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.broadcast.Broadcast.create">
+<em class="property">async </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">description: str</em>, <em class="sig-param">source_url: str = None</em>, <em class="sig-param">markdown: str = None</em>, <em class="sig-param">credit: str = None</em>, <em class="sig-param">start_time: int = None</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.broadcast.Broadcast.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new broadcast to relay external games.</p>
+<dl class="simple">
+<dt>name: str, required</dt><dd><p>Name of the broadcast. Length must be between 3 and 80 characters.</p>
+</dd>
+<dt>description: str, required</dt><dd><p>Short description of the broadcast. Length must be between 3 and 400 characters.</p>
+</dd>
+<dt>source_url: str, optional</dt><dd><p>URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+Example: <a class="reference external" href="http://myserver.org/myevent/round-10/games.pgn">http://myserver.org/myevent/round-10/games.pgn</a>
+If the syncUrl is missing, then the broadcast needs to be fed by pushing PGN to it.</p>
+</dd>
+<dt>markdown: str, optional</dt><dd><p>Optional long description of the broadcast.
+Markdown is supported. Length must be less than 20,000 characters.</p>
+</dd>
+<dt>credit: str, optional</dt><dd><p>Optional short text to give credit to the source provider.</p>
+</dd>
+<dt>start_time: int, optional</dt><dd><p>Timestamp of broadcast start. Leave empty to manually start the broadcast.
+Example: 1356998400070</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">broadcast</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;my broadcast&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;this is my broadcast...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.broadcast.Broadcast.get">
+<em class="property">async </em><code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">broadcast_id: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.broadcast.Broadcast.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information about a broadcast that you created. You will need it if you want to update that broadcast.</p>
+<p>broadcast_id: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">broadcast</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">broadcast_id</span><span class="o">=</span><span class="s2">&quot;wje07860&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.broadcast.Broadcast.push_pgn">
+<em class="property">async </em><code class="sig-name descname">push_pgn</code><span class="sig-paren">(</span><em class="sig-param">broadcast_id: str</em>, <em class="sig-param">games: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.broadcast.Broadcast.push_pgn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update your broadcast with new PGN. Only for broadcast without a source URL.</p>
+<p>broadcast_id: str, required</p>
+<dl class="simple">
+<dt>games: str, required</dt><dd><p>The PGN. It can contain up to 64 games, separated by a double new line.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">broadcast</span><span class="o">.</span><span class="n">push_pgn</span><span class="p">(</span><span class="n">broadcast_id</span><span class="o">=</span><span class="s2">&quot;wje07860&quot;</span><span class="p">,</span> <span class="n">games</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.broadcast.Broadcast.update">
+<em class="property">async </em><code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">broadcast_id: str</em>, <em class="sig-param">name: str</em>, <em class="sig-param">description: str</em>, <em class="sig-param">source_url: str = None</em>, <em class="sig-param">markdown: str = None</em>, <em class="sig-param">credit: str = None</em>, <em class="sig-param">start_time: int = None</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.broadcast.Broadcast.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update information about a broadcast that you created.
+This endpoint accepts the same form data as the web form.
+All fields must be populated with data. Missing fields will override the broadcast with empty data.
+For instance, if you omit startDate, then any pre-existing start date will be removed.</p>
+<p>broadcast_id: str, required</p>
+<dl class="simple">
+<dt>name: str, required</dt><dd><p>Name of the broadcast. Length must be between 3 and 80 characters.</p>
+</dd>
+<dt>description: str, required</dt><dd><p>Short description of the broadcast. Length must be between 3 and 400 characters.</p>
+</dd>
+<dt>source_url: str, optional</dt><dd><p>URL that Lichess will poll to get updates about the games. It must be publicly accessible from the Internet.
+Example: <a class="reference external" href="http://myserver.org/myevent/round-10/games.pgn">http://myserver.org/myevent/round-10/games.pgn</a>
+If the syncUrl is missing, then the broadcast needs to be fed by pushing PGN to it.</p>
+</dd>
+<dt>markdown: str, optional</dt><dd><p>Optional long description of the broadcast.
+Markdown is supported. Length must be less than 20,000 characters.</p>
+</dd>
+<dt>credit: str, optional</dt><dd><p>Optional short text to give credit to the source provider.</p>
+</dd>
+<dt>start_time: int, optional</dt><dd><p>Timestamp of broadcast start. Leave empty to manually start the broadcast.
+Example: 1356998400070</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">broadcast</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">broadcast_id</span><span class="o">=</span><span class="s2">&quot;wje07860&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my broadcast&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;this is my updated broadcast...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.challenges">
+<span id="challenges"></span><h2>Challenges<a class="headerlink" href="#module-lichess_client.endpoints.challenges" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.challenges.Challenges">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.challenges.</code><code class="sig-name descname">Challenges</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.challenges.Challenges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Challenges API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.challenges.Challenges.accept">
+<em class="property">async </em><code class="sig-name descname">accept</code><span class="sig-paren">(</span><em class="sig-param">challenge_id: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.challenges.Challenges.accept" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Accept an incoming challenge.</dt><dd><p>You should receive a gameStart event on the incoming events stream.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>challenge_id: str, required</dt><dd><p>ID of the challenge to accept, further game_id will be the same as this challenge_id.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">challenges</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">challenge_id</span><span class="o">=</span><span class="s2">&quot;5IrD6Gzz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.challenges.Challenges.create">
+<em class="property">async </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">username: str</em>, <em class="sig-param">time_limit: int = None</em>, <em class="sig-param">time_increment: int = None</em>, <em class="sig-param">rated: bool = False</em>, <em class="sig-param">days: int = None</em>, <em class="sig-param">color: ColorType = &lt;ColorType.RANDOM: 'random'&gt;</em>, <em class="sig-param">variant: VariantTypes = &lt;VariantTypes.STANDARD: 'standard'&gt;</em>, <em class="sig-param">position: str = None</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.challenges.Challenges.create" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Challenge someone to play. The targeted player can choose to accept or decline.</dt><dd><p>If the challenge is accepted, you will be notified on the event stream that a new game has started.
+The game ID will be the same as the challenge ID.</p>
+</dd>
+</dl>
+<p>username: str, required</p>
+<dl>
+<dt>time_limit: int, optional</dt><dd><p>[1..10800] Clock initial time in seconds. If empty, a correspondence game is created.</p>
+</dd>
+<dt>time_increment: int, optional</dt><dd><p>[0..60] Clock increment in seconds. If empty, a correspondence game is created.</p>
+</dd>
+<dt>rated: bool: optional</dt><dd><p>Game is rated and impacts players ratings</p>
+</dd>
+<dt>days: int, optional</dt><dd><p>[1..15] Days per move, for correspondence games. Time settings must be omitted.</p>
+</dd>
+<dt>color: ColorType, optional</dt><dd><p>Enum: “random” “white” “black”
+Which color you get to play, default: “random”.</p>
+</dd>
+<dt>variant: VariantTypes, optional</dt><dd><p>Default: “standard”
+Enum: “standard” “chess960” “crazyhouse” “antichess” “atomic” “horde” “kingOfTheHill”</p>
+<blockquote>
+<div><p>“racingKings” “threeCheck”</p>
+</div></blockquote>
+<p>The variant of the game</p>
+</dd>
+<dt>position: str, optional</dt><dd><p>Default: “rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1”
+Custom initial position (in FEN). Variant must be standard, and the game cannot be rated.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">challenges</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;amasend&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.challenges.Challenges.decline">
+<em class="property">async </em><code class="sig-name descname">decline</code><span class="sig-paren">(</span><em class="sig-param">challenge_id: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.challenges.Challenges.decline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decline an incoming challenge.</p>
+<dl class="simple">
+<dt>challenge_id: str, required</dt><dd><p>ID of the challenge to decline.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">challenges</span><span class="o">.</span><span class="n">decline</span><span class="p">(</span><span class="n">challenge_id</span><span class="o">=</span><span class="s2">&quot;5IrD6Gzz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.challenges.Challenges.stream_incoming_events">
+<em class="property">async </em><code class="sig-name descname">stream_incoming_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.challenges.Challenges.stream_incoming_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stream the events reaching a lichess user in real time.
+This method is implemented in “boards” endpoint.</p>
+<p>lichess_client.APIClient.boards.stream_incoming_events()</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.games">
+<span id="games"></span><h2>Games<a class="headerlink" href="#module-lichess_client.endpoints.games" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.games.Games">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.games.</code><code class="sig-name descname">Games</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.games.Games" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Games API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.games.Games.export_games_by_ids">
+<em class="property">async </em><code class="sig-name descname">export_games_by_ids</code><span class="sig-paren">(</span><em class="sig-param">game_ids: List[str]</em><span class="sig-paren">)</span> &#x2192; lichess_client.helpers.response_helpers.Response<a class="headerlink" href="#lichess_client.endpoints.games.Games.export_games_by_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download games by IDs.</p>
+<p>Games are sorted by reverse chronological order (most recent first)</p>
+<p>The method is POST so a longer list of IDs can be sent in the request body. At most 300 IDs can be submitted.</p>
+<dl class="simple">
+<dt>game_ids: List[str], required</dt><dd><p>IDs of the games.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">export_games_by_ids</span><span class="p">(</span><span class="n">game_ids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;q7zvsdUF&#39;</span><span class="p">,</span> <span class="s1">&#39;ILwozzRZ&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.games.Games.export_games_of_a_user">
+<em class="property">async </em><code class="sig-name descname">export_games_of_a_user</code><span class="sig-paren">(</span><em class="sig-param">username: str</em>, <em class="sig-param">since: int = None</em>, <em class="sig-param">until: int = None</em>, <em class="sig-param">limit: int = None</em>, <em class="sig-param">vs: str = None</em>, <em class="sig-param">rated: bool = None</em>, <em class="sig-param">variant: Union[VariantTypes</em>, <em class="sig-param">List[VariantTypes]] = None</em>, <em class="sig-param">color: Optional[lichess_client.utils.enums.ColorType] = None</em>, <em class="sig-param">analysed: bool = None</em>, <em class="sig-param">ongoing: bool = False</em><span class="sig-paren">)</span> &#x2192; lichess_client.helpers.response_helpers.Response<a class="headerlink" href="#lichess_client.endpoints.games.Games.export_games_of_a_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download all games of any user in PGN format.
+Games are sorted by reverse chronological order (most recent first)
+We recommend streaming the response, for it can be very long. <a class="reference external" href="https://lichess.org/&#64;/german11">https://lichess.org/&#64;/german11</a> for instance has more than 320,000 games.
+The game stream is throttled, depending on who is making the request:</p>
+<blockquote>
+<div><p>Anonymous request: 15 games per second
+OAuth2 authenticated request: 25 games per second
+Authenticated, downloading your own games: 50 games per second</p>
+</div></blockquote>
+<dl>
+<dt>username: str, required</dt><dd><p>Name of the user.</p>
+</dd>
+<dt>since: int, optional</dt><dd><p>Default: “Account creation date”
+Download games played since this timestamp.</p>
+</dd>
+<dt>until: int, optional</dt><dd><p>Default: “Now”
+Download games played until this timestamp.</p>
+</dd>
+<dt>limit: int, optional</dt><dd><p>Default: None
+How many games to download. Leave empty to download all games.</p>
+</dd>
+<dt>vs: str, optional</dt><dd><p>[Filter] Only games played against this opponent</p>
+</dd>
+<dt>rated: bool, optional</dt><dd><blockquote>
+<div><p>Default: None</p>
+</div></blockquote>
+<p>[Filter] Only rated (true) or casual (false) games</p>
+</dd>
+<dt>variant: Union[VariantTypes, List[VariantTypes]], optional</dt><dd><p>Default: None
+[Filter] Only games in these speeds or variants.
+Multiple variants can be specified in a list.</p>
+</dd>
+<dt>color: ColorType, optional</dt><dd><p>Default: None
+[Filter] Only games played as this color.</p>
+</dd>
+<dt>analysed: bool, optional</dt><dd><p>[Filter] Only games with or without a computer analysis available.</p>
+</dd>
+<dt>ongoing: bool, optional</dt><dd><p>Default: false
+[Filter] Also include ongoing games</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">export_games_of_a_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;amasend&#39;</span><span class="p">)</span>
+<span class="go"># TODO: add more examples</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.games.Games.export_one_game">
+<em class="property">async </em><code class="sig-name descname">export_one_game</code><span class="sig-paren">(</span><em class="sig-param">game_id: str</em><span class="sig-paren">)</span> &#x2192; lichess_client.helpers.response_helpers.Response<a class="headerlink" href="#lichess_client.endpoints.games.Games.export_one_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download one game. Only finished games can be downloaded.</p>
+<dl class="simple">
+<dt>game_id: str, required</dt><dd><p>ID of the game.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">export_one_game</span><span class="p">(</span><span class="n">game_id</span><span class="o">=</span><span class="s1">&#39;q7zvsdUF&#39;</span><span class="p">)</span>
+<span class="go"># TODO: add more examples</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.games.Games.get_current_tv_games">
+<em class="property">async </em><code class="sig-name descname">get_current_tv_games</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; lichess_client.helpers.response_helpers.Response<a class="headerlink" href="#lichess_client.endpoints.games.Games.get_current_tv_games" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get basic info about the best games being played for each speed and variant,
+but also computer games and bot games.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_current_tv_games</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.games.Games.get_ongoing_games">
+<em class="property">async </em><code class="sig-name descname">get_ongoing_games</code><span class="sig-paren">(</span><em class="sig-param">limit: int = 9</em><span class="sig-paren">)</span> &#x2192; lichess_client.helpers.response_helpers.Response<a class="headerlink" href="#lichess_client.endpoints.games.Games.get_ongoing_games" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ongoing games of the current user.
+Real-time and correspondence games are included. The most urgent games are listed first.</p>
+<dl class="simple">
+<dt>limit: int, optional</dt><dd><p>Number of games to fetch, default is 9.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response_1</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_ongoing_games</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response_2</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_ongoing_games</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.games.Games.stream_current_games">
+<em class="property">async </em><code class="sig-name descname">stream_current_games</code><span class="sig-paren">(</span><em class="sig-param">users: List[str]</em><span class="sig-paren">)</span> &#x2192; lichess_client.helpers.response_helpers.Response<a class="headerlink" href="#lichess_client.endpoints.games.Games.stream_current_games" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stream the games played between a list of users, in real time.
+Only games where both players are part of the list are included.
+Maximum number of users: 300.
+The method is POST so a longer list of IDs can be sent in the request body.</p>
+<dl class="simple">
+<dt>users: List[str], required</dt><dd><p>User names.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">stream_current_games</span><span class="p">(</span><span class="n">users</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;amasend&#39;</span><span class="p">,</span> <span class="s1">&#39;lovlas&#39;</span><span class="p">,</span> <span class="s1">&#39;chess-network&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.messaging">
+<span id="messaging"></span><h2>Messaging<a class="headerlink" href="#module-lichess_client.endpoints.messaging" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.messaging.Messaging">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.messaging.</code><code class="sig-name descname">Messaging</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.messaging.Messaging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Messaging API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.messaging.Messaging.send">
+<em class="property">async </em><code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">username: str</em>, <em class="sig-param">text: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.messaging.Messaging.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a private message to another player.</p>
+<p>username: str, required</p>
+<p>text: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">messaging</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.relations">
+<span id="relations"></span><h2>Relations<a class="headerlink" href="#module-lichess_client.endpoints.relations" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.relations.Relations">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.relations.</code><code class="sig-name descname">Relations</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.relations.Relations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Relations API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.relations.Relations.get_users_followed_by_a_user">
+<em class="property">async </em><code class="sig-name descname">get_users_followed_by_a_user</code><span class="sig-paren">(</span><em class="sig-param">username: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.relations.Relations.get_users_followed_by_a_user" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Fetching all users followed by current user.</dt><dd><p>This is a streaming endpoint.</p>
+</dd>
+</dl>
+<p>username: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_users_followed_by_a_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;amasend&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.relations.Relations.get_users_who_follow_a_user">
+<em class="property">async </em><code class="sig-name descname">get_users_who_follow_a_user</code><span class="sig-paren">(</span><em class="sig-param">username: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.relations.Relations.get_users_who_follow_a_user" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Fetching all users who follow this user.</dt><dd><p>This is a streaming endpoint.</p>
+</dd>
+</dl>
+<p>username: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_users_who_follow_a_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;amasend&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.simulations">
+<span id="simulations"></span><h2>Simulations<a class="headerlink" href="#module-lichess_client.endpoints.simulations" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.simulations.Simulations">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.simulations.</code><code class="sig-name descname">Simulations</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.simulations.Simulations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Simulations API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.simulations.Simulations.get_current">
+<em class="property">async </em><code class="sig-name descname">get_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.simulations.Simulations.get_current" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get recently finished, ongoing, and upcoming simuls.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">simulations</span><span class="o">.</span><span class="n">get_current</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.studies">
+<span id="studies"></span><h2>Studies<a class="headerlink" href="#module-lichess_client.endpoints.studies" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.studies.Studies">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.studies.</code><code class="sig-name descname">Studies</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.studies.Studies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Studies API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.studies.Studies.export_all_chapters">
+<em class="property">async </em><code class="sig-name descname">export_all_chapters</code><span class="sig-paren">(</span><em class="sig-param">study_id: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.studies.Studies.export_all_chapters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download all chapters of a study in PGN format.</p>
+<p>study_id: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">studies</span><span class="o">.</span><span class="n">export_all_chapters</span><span class="p">(</span><span class="n">study_id</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.studies.Studies.export_chapter">
+<em class="property">async </em><code class="sig-name descname">export_chapter</code><span class="sig-paren">(</span><em class="sig-param">study_id: str</em>, <em class="sig-param">chapter_id: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.studies.Studies.export_chapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download one study chapter in PGN format.</p>
+<p>study_id: str, required</p>
+<p>chapter_id: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">studies</span><span class="o">.</span><span class="n">export_chapter</span><span class="p">(</span><span class="n">study_id</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span> <span class="n">chapter_id</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.teams">
+<span id="teams"></span><h2>Teams<a class="headerlink" href="#module-lichess_client.endpoints.teams" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.teams.Teams">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.teams.</code><code class="sig-name descname">Teams</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.teams.Teams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Teams API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.teams.Teams.get_members_of_a_team">
+<em class="property">async </em><code class="sig-name descname">get_members_of_a_team</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#lichess_client.endpoints.teams.Teams.get_members_of_a_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not implemented</p>
+<p>client.users.get_members_of_a_team(…)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.teams.Teams.join_a_team">
+<em class="property">async </em><code class="sig-name descname">join_a_team</code><span class="sig-paren">(</span><em class="sig-param">team_id: str</em><span class="sig-paren">)</span> &#x2192; lichess_client.helpers.response_helpers.Response<a class="headerlink" href="#lichess_client.endpoints.teams.Teams.join_a_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Join a team. If the team join policy requires a confirmation, and the team owner is not the oAuth app owner,
+then the call fails with 403 Forbidden.</p>
+<p>team_id: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">join_a_team</span><span class="p">(</span><span class="n">team_id</span> <span class="o">=</span> <span class="s1">&#39;some_team&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.teams.Teams.kick_a_user_from_your_team">
+<em class="property">async </em><code class="sig-name descname">kick_a_user_from_your_team</code><span class="sig-paren">(</span><em class="sig-param">team_id: str</em>, <em class="sig-param">user_id: str</em><span class="sig-paren">)</span> &#x2192; lichess_client.helpers.response_helpers.Response<a class="headerlink" href="#lichess_client.endpoints.teams.Teams.kick_a_user_from_your_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kick a member out of one of your teams.</p>
+<p>team_id: str, required</p>
+<p>user_id: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">kick_a_user_from_your_team</span><span class="p">(</span><span class="n">team_id</span><span class="o">=</span><span class="s1">&#39;some_team&#39;</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="s1">&#39;amasend&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.teams.Teams.leave_a_team">
+<em class="property">async </em><code class="sig-name descname">leave_a_team</code><span class="sig-paren">(</span><em class="sig-param">team_id: str</em><span class="sig-paren">)</span> &#x2192; lichess_client.helpers.response_helpers.Response<a class="headerlink" href="#lichess_client.endpoints.teams.Teams.leave_a_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Leave a team.</p>
+<p>team_id: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">leave_a_team</span><span class="p">(</span><span class="n">team_id</span> <span class="o">=</span> <span class="s1">&#39;some_team&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="tournaments">
+<h2>Tournaments<a class="headerlink" href="#tournaments" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-lichess_client.endpoints.tournaments"></span><dl class="class">
+<dt id="lichess_client.endpoints.tournaments.Tournaments">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.tournaments.</code><code class="sig-name descname">Tournaments</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.tournaments.Tournaments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Tournaments API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.tournaments.Tournaments.create">
+<em class="property">async </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">clock_time: int</em>, <em class="sig-param">clock_increment: int</em>, <em class="sig-param">minutes: int</em>, <em class="sig-param">name: str = None</em>, <em class="sig-param">wait_minutes: int = 5</em>, <em class="sig-param">start_date: int = None</em>, <em class="sig-param">variant: VariantTypes = &lt;VariantTypes.STANDARD: 'standard'&gt;</em>, <em class="sig-param">rated: bool = True</em>, <em class="sig-param">position: str = None</em>, <em class="sig-param">berserk: bool = True</em>, <em class="sig-param">password: str = None</em>, <em class="sig-param">team_id: str = None</em>, <em class="sig-param">min_rating: int = None</em>, <em class="sig-param">max_rating: int = None</em>, <em class="sig-param">number_of_rated_games: int = None</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.tournaments.Tournaments.create" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Create a public or private tournament to your taste.</dt><dd><p>This endpoint mirrors the form on <a class="reference external" href="https://lichess.org/tournament/new">https://lichess.org/tournament/new</a>.
+You can create up to 2 tournaments per day.</p>
+</dd>
+</dl>
+<p>name: str, optional</p>
+<dl>
+<dt>clock_time: int, required</dt><dd><p>[0..60] Clock initial time in minutes</p>
+</dd>
+<dt>clock_increment: int, required</dt><dd><p>[0..60] Clock increment in seconds</p>
+</dd>
+<dt>minutes: int, required</dt><dd><p>[0..360] How long the tournament lasts, in minutes.</p>
+</dd>
+<dt>wait_minutes: int, optional</dt><dd><p>Default: 5
+How long to wait before starting the tournament, from now, in minutes</p>
+</dd>
+<dt>start_date: int, optional</dt><dd><p>Timestamp to start the tournament at a given date and time. Overrides the waitMinutes setting.</p>
+</dd>
+<dt>variant: VariantTypes, optional</dt><dd><p>Default: “standard”
+Enum: “standard” “chess960” “crazyhouse” “antichess” “atomic” “horde”</p>
+<blockquote>
+<div><p>“kingOfTheHill” “racingKings” “threeCheck”</p>
+</div></blockquote>
+<p>The variant to use in tournament games</p>
+</dd>
+<dt>rated: bool, optional</dt><dd><p>Default: true
+Games are rated and impact players ratings</p>
+</dd>
+<dt>position: str, optional</dt><dd><p>Default: “rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1”
+Custom initial position (in FEN) for all games of the tournament. Must be one of</p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/ornicar/scalachess/blob/ab61b7e6d8d4ab602f6366b29b0e5715717e8944/src/main/scala/StartingPosition.scala#L25">https://github.com/ornicar/scalachess/blob/ab61b7e6d8d4ab602f6366b29b0e5715717e8944/src/main/scala/StartingPosition.scala#L25</a></p>
+</div></blockquote>
+</dd>
+<dt>berserk: bool, optional</dt><dd><p>Default: true
+Whether the players can use berserk</p>
+</dd>
+<dt>password: str, optional</dt><dd><p>Make the tournament private, and restrict access with a password</p>
+</dd>
+<dt>team_id, str, optional</dt><dd><dl class="simple">
+<dt>Restrict entry to members of a team. The team_id is the last part of a team URL, e.g.</dt><dd><p><a class="reference external" href="https://lichess.org/team/coders">https://lichess.org/team/coders</a> has teamId = coders.</p>
+</dd>
+</dl>
+<p>Leave as None to let everyone join the tournament.</p>
+</dd>
+<dt>min_rating: int, optional</dt><dd><p>Minimum rating to join. Leave empty to let everyone join the tournament.</p>
+</dd>
+<dt>max_rating: int, optional</dt><dd><p>Maximum rating to join. Based on best rating reached in the last 7 days.
+Leave empty to let everyone join the tournament.</p>
+</dd>
+<dt>number_of_rated_games: int, optional</dt><dd><p>Minimum number of rated games required to join.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">tournaments</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">clock_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clock_increment</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.tournaments.Tournaments.export_games">
+<em class="property">async </em><code class="sig-name descname">export_games</code><span class="sig-paren">(</span><em class="sig-param">tournament_id: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.tournaments.Tournaments.export_games" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download games of a tournament. Games are sorted by reverse chronological order (most recent first)</p>
+<dl class="simple">
+<dt>tournament_id: str, required</dt><dd><p>ID of the tournament to export.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">tournaments</span><span class="o">.</span><span class="n">export_games</span><span class="p">(</span><span class="n">tournament_id</span><span class="o">=</span><span class="s1">&#39;q7zvsdUF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.tournaments.Tournaments.get_current">
+<em class="property">async </em><code class="sig-name descname">get_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.tournaments.Tournaments.get_current" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get recently finished, ongoing, and upcoming tournaments.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">tournaments</span><span class="o">.</span><span class="n">get_current</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.tournaments.Tournaments.get_results">
+<em class="property">async </em><code class="sig-name descname">get_results</code><span class="sig-paren">(</span><em class="sig-param">tournament_id: str</em>, <em class="sig-param">limit: int = 10</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.tournaments.Tournaments.get_results" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Players of a tournament, with their score and performance, sorted by rank (best first).</dt><dd><p>games of a tournament. Games are sorted by reverse chronological order (most recent first)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>tournament_id: str, required</dt><dd><p>ID of the tournament to export.</p>
+</dd>
+<dt>limit: int, optional</dt><dd><p>Default: 10
+Max number of players to fetch</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">tournaments</span><span class="o">.</span><span class="n">get_results</span><span class="p">(</span><span class="n">tournament_id</span><span class="o">=</span><span class="s1">&#39;q7zvsdUF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.tournaments.Tournaments.get_tournaments_created_by_a_user">
+<em class="property">async </em><code class="sig-name descname">get_tournaments_created_by_a_user</code><span class="sig-paren">(</span><em class="sig-param">username: str</em>, <em class="sig-param">limit: int = 10</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.tournaments.Tournaments.get_tournaments_created_by_a_user" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Get all tournaments created by a given user.</dt><dd><p>Tournaments are sorted by reverse chronological order of start date (last starting first).</p>
+</dd>
+</dl>
+<p>username: str, required</p>
+<dl class="simple">
+<dt>limit: int, optional</dt><dd><p>Default: 10
+Max number of tournaments to fetch.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">tournaments</span><span class="o">.</span><span class="n">get_tournaments_created_by_a_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;amasend&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lichess_client.endpoints.users">
+<span id="users"></span><h2>Users<a class="headerlink" href="#module-lichess_client.endpoints.users" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lichess_client.endpoints.users.Users">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.endpoints.users.</code><code class="sig-name descname">Users</code><span class="sig-paren">(</span><em class="sig-param">client: BaseClient</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.endpoints.users.Users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Users API Endpoint</p>
+<dl class="method">
+<dt id="lichess_client.endpoints.users.Users.get_all_top_10">
+<em class="property">async </em><code class="sig-name descname">get_all_top_10</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.users.Users.get_all_top_10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top 10 players for each speed and variant.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_all_top_10</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.users.Users.get_live_streamers">
+<em class="property">async </em><code class="sig-name descname">get_live_streamers</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.users.Users.get_live_streamers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get basic info about currently streaming users.</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_live_streamers</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.users.Users.get_members_of_a_team">
+<em class="property">async </em><code class="sig-name descname">get_members_of_a_team</code><span class="sig-paren">(</span><em class="sig-param">team_id: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.users.Users.get_members_of_a_team" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Download your puzzle activity in ndjson format.</dt><dd><p>Puzzle activity is sorted by reverse chronological order (most recent first)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>team_id: str, required</dt><dd><p>Team ID</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_members_of_a_team</span><span class="p">(</span><span class="n">team_id</span><span class="o">=</span><span class="s1">&#39;team&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.users.Users.get_one_leaderboard">
+<em class="property">async </em><code class="sig-name descname">get_one_leaderboard</code><span class="sig-paren">(</span><em class="sig-param">variant: VariantTypes</em>, <em class="sig-param">limit: int = 10</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.users.Users.get_one_leaderboard" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Get the leaderboard for a single speed or variant (a.k.a. perfType).</dt><dd><p>There is no leaderboard for correspondence or puzzles.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>limit: int, optional</dt><dd><p>How many users to fetch.</p>
+</dd>
+</dl>
+<p>variant: VariantTypes, required</p>
+<p>Response object with response content.</p>
+<p>VariantTypes</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_one_leaderboard</span><span class="p">(</span><span class="n">variant</span><span class="o">=</span><span class="n">VariantTypes</span><span class="o">.</span><span class="n">BLITZ</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response_2</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_one_leaderboard</span><span class="p">(</span><span class="n">variant</span><span class="o">=</span><span class="n">VariantTypes</span><span class="o">.</span><span class="n">ANTICHESS</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.users.Users.get_rating_history_of_a_user">
+<em class="property">async </em><code class="sig-name descname">get_rating_history_of_a_user</code><span class="sig-paren">(</span><em class="sig-param">username: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.users.Users.get_rating_history_of_a_user" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Read rating history of a user, for all perf types. There is at most one entry per day.</dt><dd><p>Format of an entry is [year, month, day, rating]. month starts at zero (January).</p>
+</dd>
+</dl>
+<p>username: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_rating_history_of_a_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;amasend&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.users.Users.get_real_time_users_status">
+<em class="property">async </em><code class="sig-name descname">get_real_time_users_status</code><span class="sig-paren">(</span><em class="sig-param">users_ids: List[str]</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.users.Users.get_real_time_users_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the online, playing and streaming flags of several users.</p>
+<p>This API is very fast and cheap on lichess side. So you can call it quite often (like once every 5 seconds).</p>
+<p>Use it to track players and know when they’re connected on lichess and playing games.</p>
+<dl class="simple">
+<dt>users_ids: List[str], required</dt><dd><p>List of the users IDs to fetch information about the status.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_real_time_users_status</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">users_ids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;amasend&#39;</span><span class="p">,</span> <span class="s1">&#39;aliquantus&#39;</span><span class="p">,</span><span class="s1">&#39;chess-network&#39;</span><span class="p">,</span> <span class="s1">&#39;lovlas&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.users.Users.get_user_activity">
+<em class="property">async </em><code class="sig-name descname">get_user_activity</code><span class="sig-paren">(</span><em class="sig-param">username: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.users.Users.get_user_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read data to generate the activity feed of a user.</p>
+<p>username: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_user_activity</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;amasend&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.users.Users.get_user_public_data">
+<em class="property">async </em><code class="sig-name descname">get_user_public_data</code><span class="sig-paren">(</span><em class="sig-param">username: str</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.users.Users.get_user_public_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read public data of a user.</p>
+<p>username: str, required</p>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_user_public_data</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;amasend&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.users.Users.get_users_by_id">
+<em class="property">async </em><code class="sig-name descname">get_users_by_id</code><span class="sig-paren">(</span><em class="sig-param">users_ids: List[str]</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.users.Users.get_users_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Get several users by their IDs. Users are returned in the order same order as the IDs.</dt><dd><p>The method is POST so a longer list of IDs can be sent in the request body.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>users_ids: List[str], required</dt><dd><p>List of the users IDs to fetch information about the status.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_users_by_id</span><span class="p">(</span><span class="n">users_ids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;amasend&#39;</span><span class="p">,</span> <span class="s1">&#39;aliquantus&#39;</span><span class="p">,</span><span class="s1">&#39;chess-network&#39;</span><span class="p">,</span> <span class="s1">&#39;lovlas&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.users.Users.get_your_puzzle_activity">
+<em class="property">async </em><code class="sig-name descname">get_your_puzzle_activity</code><span class="sig-paren">(</span><em class="sig-param">limit: int = None</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.users.Users.get_your_puzzle_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download your puzzle activity in ndjson format.
+Puzzle activity is sorted by reverse chronological order (most recent first)</p>
+<dl class="simple">
+<dt>limit: int, optional</dt><dd><p>Hom many records to fetch, if None, all records will be fetched (by streaming).</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_your_puzzle_activity</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response_2</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get_your_puzzle_activity</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-lichess_client.helpers.response_helpers">
+<span id="helpers"></span><h1>Helpers<a class="headerlink" href="#module-lichess_client.helpers.response_helpers" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="lichess_client.helpers.response_helpers.Response">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.helpers.response_helpers.</code><code class="sig-name descname">Response</code><span class="sig-paren">(</span><em class="sig-param">metadata: lichess_client.helpers.response_helpers.ResponseMetadata</em>, <em class="sig-param">entity: lichess_client.helpers.response_helpers.ResponseEntity</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.helpers.response_helpers.Response" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Response class. Used to store every API response in the unified way.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lichess_client.helpers.response_helpers.ResponseMetadata">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.helpers.response_helpers.</code><code class="sig-name descname">ResponseMetadata</code><span class="sig-paren">(</span><em class="sig-param">method: str</em>, <em class="sig-param">url: str</em>, <em class="sig-param">content_type: str</em>, <em class="sig-param">timestamp: bytes</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.helpers.response_helpers.ResponseMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metadata class for the response object.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lichess_client.helpers.response_helpers.ResponseEntity">
+<em class="property">class </em><code class="sig-prename descclassname">lichess_client.helpers.response_helpers.</code><code class="sig-name descname">ResponseEntity</code><span class="sig-paren">(</span><em class="sig-param">code: int, reason: str, status: StatusTypes, content: Union[List[dict], dict, Game]</em><span class="sig-paren">)</span><a class="headerlink" href="#lichess_client.helpers.response_helpers.ResponseEntity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entity class for the response object.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Amadeusz Masny
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
