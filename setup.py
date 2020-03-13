@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 PROJECT_URLS = {
     'Bug Tracker': 'https://github.com/amasend/lichees_python_SDK/issues',
-    'Documentation': 'https://scikit-learn.org/stable/documentation.html',
+    'Documentation': 'https://amasend.github.io/lichees_python_SDK/html/index.html',
     'Source Code': 'https://github.com/amasend/lichees_python_SDK'
 }
 
