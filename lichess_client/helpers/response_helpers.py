@@ -5,6 +5,12 @@ from lichess_client.utils.enums import RequestMethods, StatusTypes
 if TYPE_CHECKING:
     from chess.pgn import Game
 
+__all__ = [
+    "Response",
+    "ResponseMetadata",
+    "ResponseEntity"
+]
+
 
 class BaseHelper:
     """Base Helper class with defined custom magic methods, also for to dictionary conversion."""

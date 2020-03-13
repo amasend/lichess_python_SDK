@@ -42,6 +42,8 @@ class TestAccountEndpoint(unittest.TestCase):
     @async_test
     async def test_04__get_my_kid_mode_status__fetching_kid_status__response_object_returned_with_success(self):
         response = await self.client.account.get_my_kid_mode_status()
+        print(response.metadata.timestamp)
+        print(response.entity.content)
         print(response)
 
         self.assertIsInstance(response, Response, msg="Response in not of type \"Response\"")

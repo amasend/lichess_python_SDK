@@ -191,7 +191,7 @@ class Users(AbstractUsers):
     async def get_your_puzzle_activity(self, limit: int = None) -> 'Response':
         """
         Download your puzzle activity in ndjson format.
-            Puzzle activity is sorted by reverse chronological order (most recent first)
+        Puzzle activity is sorted by reverse chronological order (most recent first)
 
         Parameters
         ----------
