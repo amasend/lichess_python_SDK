@@ -1,4 +1,4 @@
-# Asynchronous Lichess Python SDK
+![Lichess Python SDK](https://github.com/amasend/lichees_python_SDK/workflows/Lichess%20Python%20SDK/badge.svg?branch=master)
 
 This package is meant to be an unofficial Python API Client for lichees.org.  
 For information about the API please refer to https://lichess.org/api  
