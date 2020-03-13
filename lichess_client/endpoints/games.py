@@ -69,13 +69,9 @@ class Games(AbstractGames):
                                      ongoing: bool = False) -> 'Response':
         """
         Download all games of any user in PGN format.
-
         Games are sorted by reverse chronological order (most recent first)
-
         We recommend streaming the response, for it can be very long. https://lichess.org/@/german11 for instance has more than 320,000 games.
-
         The game stream is throttled, depending on who is making the request:
-
             Anonymous request: 15 games per second
             OAuth2 authenticated request: 25 games per second
             Authenticated, downloading your own games: 50 games per second

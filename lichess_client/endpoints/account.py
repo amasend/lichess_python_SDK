@@ -48,7 +48,7 @@ class Account(AbstractAccount):
         -------
         >>> from lichess_client import APIClient
         >>> client = APIClient(token='...')
-        >>> response = client.account.get_my_email_address()()
+        >>> response = client.account.get_my_email_address()
         """
         headers = {
             'Content-Type': 'application/json'

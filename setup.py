@@ -6,6 +6,12 @@ with open('VERSION.txt', 'r') as f:
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+PROJECT_URLS = {
+    'Bug Tracker': 'https://github.com/amasend/lichees_python_SDK/issues',
+    'Documentation': 'https://scikit-learn.org/stable/documentation.html',
+    'Source Code': 'https://github.com/amasend/lichees_python_SDK'
+}
+
 setuptools.setup(
     name="async_lichess_sdk",
     version=version,
@@ -14,6 +20,7 @@ setuptools.setup(
     description="Asynchronous Python API client for accessing the lichess.org API.",
     url="https://github.com/amasend/lichees_python_SDK",
     packages=setuptools.find_packages(exclude=["tests"]),
+    license="Apache Software License",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache License, Version 2.0 (Apache-2.0)",
