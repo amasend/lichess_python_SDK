@@ -18,6 +18,8 @@ setuptools.setup(
     author="Amaedeusz Masny",
     author_email="amadeuszmasny@gmail.com",
     description="Asynchronous Python API client for accessing the lichess.org API.",
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url="https://github.com/amasend/lichees_python_SDK",
     packages=setuptools.find_packages(exclude=["tests"]),
     license="Apache Software License",
