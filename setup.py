@@ -7,9 +7,9 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 PROJECT_URLS = {
-    'Bug Tracker': 'https://github.com/amasend/lichees_python_SDK/issues',
-    'Documentation': 'https://amasend.github.io/lichees_python_SDK/html/index.html',
-    'Source Code': 'https://github.com/amasend/lichees_python_SDK'
+    'Bug Tracker': 'https://github.com/amasend/lichess_python_SDK/issues',
+    'Documentation': 'https://amasend.github.io/lichess_python_SDK/html/index.html',
+    'Source Code': 'https://github.com/amasend/lichess_python_SDK'
 }
 
 setuptools.setup(

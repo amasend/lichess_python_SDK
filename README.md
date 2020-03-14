@@ -1,14 +1,14 @@
-![Lichess Python SDK](https://github.com/amasend/lichees_python_SDK/workflows/Lichess%20Python%20SDK/badge.svg?branch=master)
+![Lichess Python SDK](https://github.com/amasend/lichess_python_SDK/workflows/Lichess%20Python%20SDK/badge.svg?branch=master)
 
 This package is meant to be an unofficial Python API Client for lichees.org.  
 For information about the API please refer to https://lichess.org/api  
 Every API endpoint uses async Python methods (asyncio).
 
 # Documentation
-`https://amasend.github.io/lichees_python_SDK/html/index.html`  
+`https://amasend.github.io/lichess_python_SDK/html/index.html`  
 
 # Sample Notebook
-`https://github.com/amasend/lichees_python_SDK/blob/master/sample_notebooks/How%20to%20use%20an%20Asynchronous%20Lichess%20Python%20Client.ipynb`
+`https://github.com/amasend/lichess_python_SDK/blob/master/sample_notebooks/How%20to%20use%20an%20Asynchronous%20Lichess%20Python%20Client.ipynb`
 
 # Dependencies
 To use this package you need to install all of the dependencies located under `requirements.txt`.  
