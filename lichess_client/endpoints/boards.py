@@ -260,7 +260,7 @@ class Boards(AbstractBoards):
         """
 
         headers = {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
         data = {
             'room': json.dumps(room),
