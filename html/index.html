@@ -143,7 +143,6 @@ Every API endpoint uses async Python methods (asyncio).</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/aio-libs/aiohttp">aiohttp</a></p></li>
 <li><p><a class="reference external" href="https://github.com/niklasf/python-chess">python-chess</a></p></li>
-<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas">pandas</a></p></li>
 </ul>
 </div>
 <div class="section" id="installation">
@@ -294,6 +293,25 @@ The variant of the game.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">boards</span><span class="o">.</span><span class="n">create_a_seek</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">increment</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lichess_client.endpoints.boards.Boards.handle_draw">
+<em class="property">async </em><code class="sig-name descname">handle_draw</code><span class="sig-paren">(</span><em class="sig-param">game_id: str</em>, <em class="sig-param">accept: bool = True</em><span class="sig-paren">)</span> &#x2192; Response<a class="headerlink" href="#lichess_client.endpoints.boards.Boards.handle_draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create/accept/decline draw offers.</p>
+<dl class="simple">
+<dt>game_id: str, required</dt><dd><p>ID of the current playing game.</p>
+</dd>
+<dt>accept: bool, optional</dt><dd><p>True: Offer a draw, or accept the opponent’s draw offer.
+False: Decline a draw offer from the opponent.</p>
+</dd>
+</dl>
+<p>Response object with response content.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lichess_client</span> <span class="kn">import</span> <span class="n">APIClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">boards</span><span class="o">.</span><span class="n">handle_draw</span><span class="p">(</span><span class="n">game_id</span><span class="o">=</span><span class="s1">&#39;5IrD6Gzz&#39;</span><span class="p">,</span> <span class="n">accept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
