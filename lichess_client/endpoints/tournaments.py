@@ -145,7 +145,7 @@ class Tournaments(AbstractTournaments):
             "clockIncrement": clock_increment,
             "minutes": minutes,
             "waitMinutes": wait_minutes,
-            "variant": json.dumps(variant),
+            "variant": variant.value if isinstance(variant, VariantTypes) else variant,
             "rated": json.dumps(rated),
             "berserkable": json.dumps(berserk),
 

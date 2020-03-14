@@ -9,14 +9,13 @@ from tests.utils import get_token_from_config, async_test
 class TestStudiesEndpoint(unittest.TestCase):
     client = None
     token = get_token_from_config('amasend')
-    study_id = "KMMrJvE1"
-    chapter_id = "King in the Center"
+    study_id = "IeZmXDxM"
+    chapter_id = "gTHhjLX4"
 
     @classmethod
     def setUp(cls) -> None:
         cls.client = APIClient(token=cls.token)
 
-    @unittest.SkipTest
     @async_test
     async def test_01__export_chapter__downloading_one_study_chapter__response_object_returned_with_success(self):
         response = await self.client.studies.export_chapter(study_id=self.study_id, chapter_id=self.chapter_id)

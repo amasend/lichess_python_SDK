@@ -60,6 +60,7 @@ BOARDS_MAKE_MOVE = 'api/board/game/{gameId}/move/{move}'
 BOARDS_ABORT_GAME = 'api/board/game/{gameId}/abort'
 BOARDS_RESIGN_GAME = 'api/board/game/{gameId}/resign'
 BOARDS_WRITE_IN_CHAT = 'api/board/game/{gameId}/chat'
+BOARDS_HANDLE_DRAW = 'api/board/game/{gameId}/draw/{accept}'
 
 ##############
 # CHALLENGES #
