@@ -7,6 +7,9 @@ Every API endpoint uses async Python methods (asyncio).
 # Documentation
 `https://amasend.github.io/lichees_python_SDK/html/index.html`  
 
+# Sample Notebook
+`https://github.com/amasend/lichees_python_SDK/blob/master/sample_notebooks/How%20to%20use%20an%20Asynchronous%20Lichess%20Python%20Client.ipynb`
+
 # Dependencies
 To use this package you need to install all of the dependencies located under `requirements.txt`.  
 ```bash
