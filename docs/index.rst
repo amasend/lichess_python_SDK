@@ -12,7 +12,6 @@ Requirements
 ============
 * `aiohttp <https://github.com/aio-libs/aiohttp>`_
 * `python-chess <https://github.com/niklasf/python-chess>`_
-* `pandas <https://github.com/pandas-dev/pandas>`_
 
 Installation
 ============
