@@ -43,7 +43,7 @@ class ColorType(str, Enum):
 class RoomTypes(str, Enum):
     """Room types to posting user message."""
     PLAYER = "player"
-    SPECTATOR = "SPECTATOR"
+    SPECTATOR = "spectator"
 
 
 class SideTypes(Enum):

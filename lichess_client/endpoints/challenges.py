@@ -93,8 +93,8 @@ class Challenges(AbstractChallenges):
 
         data = {
             'rated': json.dumps(rated),
-            'color': json.dumps(color),
-            'variant': json.dumps(variant)
+            'color': color.value if isinstance(color, ColorType) else color,
+            'variant': variant.value if isinstance(variant, VariantTypes) else variant
         }
         if time_limit is not None:
             data['clock.limit'] = time_limit

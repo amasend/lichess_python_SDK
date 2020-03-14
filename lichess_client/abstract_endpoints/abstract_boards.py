@@ -54,3 +54,8 @@ class AbstractBoards(ABC):
     def write_in_chat(self, game_id: str, room: 'RoomTypes', message: str):
         """Post a message to the player or spectator chat, in a game being played with the Board API."""
         pass
+
+    @abstractmethod
+    def handle_draw(self, game_id: str, accept: bool = True):
+        """Create/accept/decline draw offers."""
+        pass

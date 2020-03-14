@@ -5,7 +5,8 @@ from lichess_client.abstract_endpoints.abstract_boards import AbstractBoards
 from lichess_client.utils.enums import RequestMethods, VariantTypes, ColorType, RoomTypes
 from lichess_client.utils.client_errors import RatingRangeError
 from lichess_client.utils.hrefs import (BOARDS_STREAM_INCOMING_EVENTS, BOARDS_CREATE_A_SEEK, BOARDS_STREAM_GAME_STATE,
-                                        BOARDS_MAKE_MOVE, BOARDS_ABORT_GAME, BOARDS_RESIGN_GAME, BOARDS_WRITE_IN_CHAT)
+                                        BOARDS_MAKE_MOVE, BOARDS_ABORT_GAME, BOARDS_RESIGN_GAME, BOARDS_WRITE_IN_CHAT,
+                                        BOARDS_HANDLE_DRAW)
 
 if TYPE_CHECKING:
     from lichess_client.clients.base_client import BaseClient
@@ -204,13 +205,8 @@ class Boards(AbstractBoards):
         >>> response = await client.boards.abort_game(game_id='5IrD6Gzz')
         """
 
-        headers = {
-            'Content-Type': 'application/json'
-        }
-
         response = await self._client.request(method=RequestMethods.POST,
-                                              url=BOARDS_ABORT_GAME.format(gameId=game_id),
-                                              headers=headers)
+                                              url=BOARDS_ABORT_GAME.format(gameId=game_id))
         return response
 
     async def resign_game(self, game_id: str) -> 'Response':
@@ -233,13 +229,8 @@ class Boards(AbstractBoards):
         >>> response = await client.boards.resign_game(game_id='5IrD6Gzz')
         """
 
-        headers = {
-            'Content-Type': 'application/json'
-        }
-
         response = await self._client.request(method=RequestMethods.POST,
-                                              url=BOARDS_RESIGN_GAME.format(gameId=game_id),
-                                              headers=headers)
+                                              url=BOARDS_RESIGN_GAME.format(gameId=game_id))
         return response
 
     async def write_in_chat(self, game_id: str, message: str, room: 'RoomTypes' = RoomTypes.PLAYER):
@@ -270,10 +261,10 @@ class Boards(AbstractBoards):
         """
 
         headers = {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
         data = {
-            'room': json.dumps(room),
+            'room': room.value if isinstance(room, RoomTypes) else room,
             'text': message
         }
 
@@ -281,4 +272,33 @@ class Boards(AbstractBoards):
                                               url=BOARDS_WRITE_IN_CHAT.format(gameId=game_id),
                                               data=data,
                                               headers=headers)
+        return response
+
+    async def handle_draw(self, game_id: str, accept: bool = True) -> 'Response':
+        """
+        Create/accept/decline draw offers.
+
+        Parameters
+        ----------
+        game_id: str, required
+            ID of the current playing game.
+
+        accept: bool, optional
+            True: Offer a draw, or accept the opponent's draw offer.
+            False: Decline a draw offer from the opponent.
+
+        Returns
+        -------
+        Response object with response content.
+
+        Example
+        -------
+        >>> from lichess_client import APIClient
+        >>> client = APIClient(token='...')
+        >>> response = await client.boards.handle_draw(game_id='5IrD6Gzz', accept=True)
+        """
+
+        response = await self._client.request(method=RequestMethods.POST,
+                                              url=BOARDS_HANDLE_DRAW.format(gameId=game_id,
+                                                                            accept="yes" if accept else "no"))
         return response
