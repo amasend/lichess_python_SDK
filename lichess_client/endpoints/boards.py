@@ -204,13 +204,8 @@ class Boards(AbstractBoards):
         >>> response = await client.boards.abort_game(game_id='5IrD6Gzz')
         """
 
-        headers = {
-            'Content-Type': 'application/json'
-        }
-
         response = await self._client.request(method=RequestMethods.POST,
-                                              url=BOARDS_ABORT_GAME.format(gameId=game_id),
-                                              headers=headers)
+                                              url=BOARDS_ABORT_GAME.format(gameId=game_id))
         return response
 
     async def resign_game(self, game_id: str) -> 'Response':
@@ -233,13 +228,8 @@ class Boards(AbstractBoards):
         >>> response = await client.boards.resign_game(game_id='5IrD6Gzz')
         """
 
-        headers = {
-            'Content-Type': 'application/json'
-        }
-
         response = await self._client.request(method=RequestMethods.POST,
-                                              url=BOARDS_RESIGN_GAME.format(gameId=game_id),
-                                              headers=headers)
+                                              url=BOARDS_RESIGN_GAME.format(gameId=game_id))
         return response
 
     async def write_in_chat(self, game_id: str, message: str, room: 'RoomTypes' = RoomTypes.PLAYER):
