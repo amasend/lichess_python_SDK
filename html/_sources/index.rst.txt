@@ -21,6 +21,12 @@ You can just install me from a test PyPi
 
     pip install --index-url https://test.pypi.org/simple/ async_lichess_sdk
 
+or official PyPi
+
+.. code-block:: bash
+
+    pip install async_lichess_sdk
+
 Available Modules / Endpoints
 =============================
 
