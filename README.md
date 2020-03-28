@@ -4,6 +4,13 @@ This package is meant to be an unofficial Python API Client for lichess.org.
 For information about the API please refer to https://lichess.org/api  
 Every API endpoint uses async Python methods (asyncio).
 
+# Installation
+Pypi:
+`pip install async-lichess-sdk`
+
+Test Pypi:
+`pip install -i https://test.pypi.org/simple/ async-lichess-sdk`
+
 # Documentation
 `https://amasend.github.io/lichess_python_SDK/html/index.html`  
 
