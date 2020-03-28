@@ -35,7 +35,7 @@ class Boards(AbstractBoards):
         -------
         >>> from lichess_client import APIClient
         >>> client = APIClient(token='...')
-        >>> async for response in client.boards.stream_incoming_events()
+        >>> async for response in client.boards.stream_incoming_events():
         >>>     print(response)
         """
         headers = {
@@ -130,7 +130,7 @@ class Boards(AbstractBoards):
         -------
         >>> from lichess_client import APIClient
         >>> client = APIClient(token='...')
-        >>> async for response in client.boards.stream_game_state(game_id='5IrD6Gzz')
+        >>> async for response in client.boards.stream_game_state(game_id='5IrD6Gzz'):
         >>>     print(response)
         """
         headers = {

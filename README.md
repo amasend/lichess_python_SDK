@@ -40,18 +40,21 @@ pip install -U .
 * users
 
 # Sample usage
-### Client initialization
+### Client initialization and usage
 ```python
+import asyncio
 from lichess_client import APIClient
 
-client = APIClient(token="lichess_account_token")
-```
-  
-### Call an endpoint
-```python
 
-response = await client.account.get_my_profile()
-print(response)
+async def main():
+    client = APIClient(token="your_lichess_account_token")
+    response = await client.account.get_my_profile()
+    print(response)
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
+
+.....
 
 {'metadata': 
     {'method': <RequestMethods.GET: 'GET'>, 
