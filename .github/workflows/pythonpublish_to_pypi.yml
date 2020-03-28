@@ -1,11 +1,11 @@
 # This workflows will upload a Python Package using Twine when a release is created
 # For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
 
-name: Upload Python Package on Test Pypi
+name: Upload Python Package on Pypi
 
 on:
   push:
-    branches: [dev]
+    branches: [master]
 
 jobs:
   deploy:
@@ -25,8 +25,7 @@ jobs:
     - name: Build package
       run: |
         sh build.sh
-    - name: Publish distribution 📦 to Test PyPI
+    - name: Publish distribution 📦 to PyPI
       uses: pypa/gh-action-pypi-publish@master
       with:
-        password: ${{ secrets.test_pypi_password }}
-        repository_url: https://test.pypi.org/legacy/
+        password: ${{ secrets.pypi_password }}
