@@ -4,6 +4,13 @@ This package is meant to be an unofficial Python API Client for lichess.org.
 For information about the API please refer to https://lichess.org/api  
 Every API endpoint uses async Python methods (asyncio).
 
+# Installation
+Pypi:
+`pip install async-lichess-sdk`
+
+Test Pypi:
+`pip install -i https://test.pypi.org/simple/ async-lichess-sdk`
+
 # Documentation
 `https://amasend.github.io/lichess_python_SDK/html/index.html`  
 
@@ -40,18 +47,21 @@ pip install -U .
 * users
 
 # Sample usage
-### Client initialization
+### Client initialization and usage
 ```python
+import asyncio
 from lichess_client import APIClient
 
-client = APIClient(token="lichess_account_token")
-```
-  
-### Call an endpoint
-```python
 
-response = await client.account.get_my_profile()
-print(response)
+async def main():
+    client = APIClient(token="your_lichess_account_token")
+    response = await client.account.get_my_profile()
+    print(response)
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
+
+.....
 
 {'metadata': 
     {'method': <RequestMethods.GET: 'GET'>, 
