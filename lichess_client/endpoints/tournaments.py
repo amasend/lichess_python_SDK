@@ -163,16 +163,16 @@ class Tournaments(AbstractTournaments):
         if password is not None:
             data['password'] = password
 
-        if password is not None:
+        if team_id is not None:
             data['conditions.teamMember.teamId'] = team_id
 
-        if password is not None:
+        if min_rating is not None:
             data['conditions.minRating.rating'] = min_rating
 
-        if password is not None:
+        if max_rating is not None:
             data['conditions.maxRating.rating'] = max_rating
 
-        if password is not None:
+        if number_of_rated_games is not None:
             data['conditions.nbRatedGame.nb'] = number_of_rated_games
 
         response = await self._client.request(method=RequestMethods.POST,
