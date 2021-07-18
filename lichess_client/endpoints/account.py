@@ -28,7 +28,7 @@ class Account(AbstractAccount):
         -------
         >>> from lichess_client import APIClient
         >>> client = APIClient(token='...')
-        >>> response = client.account.get_my_profile()
+        >>> response = await client.account.get_my_profile()
         """
         headers = {
             'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ class Account(AbstractAccount):
         -------
         >>> from lichess_client import APIClient
         >>> client = APIClient(token='...')
-        >>> response = client.account.get_my_email_address()
+        >>> response = await client.account.get_my_email_address()
         """
         headers = {
             'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ class Account(AbstractAccount):
         -------
         >>> from lichess_client import APIClient
         >>> client = APIClient(token='...')
-        >>> response = client.account.get_my_preferences()
+        >>> response = await client.account.get_my_preferences()
         """
         headers = {
             'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ class Account(AbstractAccount):
         -------
         >>> from lichess_client import APIClient
         >>> client = APIClient(token='...')
-        >>> response = client.account.get_my_kid_mode_status()
+        >>> response = await client.account.get_my_kid_mode_status()
         """
         headers = {
             'Content-Type': 'application/json'
@@ -113,7 +113,7 @@ class Account(AbstractAccount):
         -------
         >>> from lichess_client import APIClient
         >>> client = APIClient(token='...')
-        >>> response = client.account.set_my_kid_mode_status()()
+        >>> response = await client.account.set_my_kid_mode_status()
         """
         headers = {
             'Content-Type': 'application/json'
