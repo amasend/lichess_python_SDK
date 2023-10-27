@@ -40,7 +40,8 @@ class Challenges(AbstractChallenges):
                      days: int = None,
                      color: 'ColorType' = ColorType.RANDOM,
                      variant: 'VariantTypes' = VariantTypes.STANDARD,
-                     position: str = None) -> 'Response':
+                     position: str = None,
+                     level = None) -> 'Response':
         """
         Challenge someone to play. The targeted player can choose to accept or decline.
             If the challenge is accepted, you will be notified on the event stream that a new game has started.
@@ -107,6 +108,9 @@ class Challenges(AbstractChallenges):
 
         if position is not None:
             data['position'] = position
+
+        if level is not None:
+            data['level'] = level
 
         response = await self._client.request(method=RequestMethods.POST,
                                               url=CHALLENGES_CREATE.format(username=username),
